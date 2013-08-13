@@ -1,8 +1,4 @@
-Template.hello.greeting = function () {
-  return "Welcome to food.";
-};
-
-Template.hello.events({
+Template.tools.events({
   'click input' : function () {
     // template data, if any, is available in 'this'
     if (typeof console !== 'undefined')
