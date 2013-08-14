@@ -1,23 +1,16 @@
 Template.tools.events({
   'click input' : function () {
     // template data, if any, is available in 'this'
-    if (typeof console !== 'undefined')
-      console.log("You pressed the button");
-    
+    Meteor.effects.showTools();
   }
 });
 
 Template.landing.events({
   'click .hungry-half': function(){
-    Session.set('half','hungry');
+    Meteor.effects.showHungryButtons();
   },
   'click .chef-half': function(){
-    Session.set('half','chef');
+    Meteor.effects.showChefButtons();
   }
 });
-Template.landing.hungry = function(){
-  return Session.equals('half','hungry');
-};
-Template.landing.chef = function(){
-  return Session.equals('half','chef');
-};
+
