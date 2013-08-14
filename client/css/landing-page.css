@@ -1,0 +1,24 @@
+.hungry-half{
+  position:absolute;
+  top:0;
+  width:50%;
+  height:100%;
+  background-color:#444;
+}
+.chef-half{
+  position:absolute;
+  top:0;
+  right:0;
+
+  width:50%;
+  height:100%;
+  background-color:#aaa;
+}
+.landing-welcome{
+  position:relative;
+  
+  padding-top:40%;
+  text-align:center;
+
+  font-size:5em;
+}

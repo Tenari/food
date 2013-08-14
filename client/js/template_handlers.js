@@ -6,3 +6,18 @@ Template.tools.events({
     
   }
 });
+
+Template.landing.events({
+  'click .hungry-half': function(){
+    Session.set('half','hungry');
+  },
+  'click .chef-half': function(){
+    Session.set('half','chef');
+  }
+});
+Template.landing.hungry = function(){
+  return Session.equals('half','hungry');
+};
+Template.landing.chef = function(){
+  return Session.equals('half','chef');
+};

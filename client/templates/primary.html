@@ -1,0 +1,35 @@
+<template name="primary">
+  {{#if currentUser}}
+    {{> loggedIn}}
+  {{else}}
+    {{> landing}}
+  {{/if}}
+</template>
+
+<template name="loggedIn">
+  <p>You're logged in, bro.</p>
+</template>
+
+<template name="landing">
+  <div class='hungry-half'>
+    <p class='landing-welcome'>I'm Hungry</p>
+
+    {{#if hungry}}
+      <div class='landing-action'>
+        <input type="button" value="Sign up"/>
+        <input type="button" value="Login"/>
+        <input type="button" value="No Account"/>
+      </div>
+    {{/if}}
+  </div>
+  <div class='chef-half'>
+    <p class='landing-welcome'>Le Chef</p>
+
+    {{#if chef}}
+      <div class='landing-action'>
+        <input type="button" value="Sign up"/>
+        <input type="button" value="Login"/>
+      </div>
+    {{/if}}
+  </div>
+</template>
