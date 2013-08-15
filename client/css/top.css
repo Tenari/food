@@ -11,6 +11,16 @@
   top:0;
   left:0;
   padding:10px;
+  padding-bottom:30px;
+  
+  font-size:2.5em;
+  color:#74AB74;
+  text-decoration:none;
+  font-family:"Tahoma",arial;
+  text-shadow: -1px 2px 6px rgba(207, 150, 150, 0.91);
+}
+.logo:hover{
+  color:#7FB37F;
 }
 .tools{
   position:absolute;
