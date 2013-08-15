@@ -1,4 +1,10 @@
 Template.landing.events({
+  'mouseenter .hungry-half':function(){
+    $('.hungry-half').removeClass("hungry-sad").addClass('hungry-happy');
+  },
+  'mouseleave .hungry-half':function(){
+    $('.hungry-half').removeClass("hungry-happy").addClass('hungry-sad');
+  },
   'mouseenter .chef-half':function(){
     $('.chef-half').removeClass("chef-sad").addClass('chef-happy');
   },
@@ -50,9 +56,15 @@ Template.landing.helpers({
   }
 });
 Template.landing.rendered = function(){
-  if(Session.get('hungry') == false){
+  var hungry = Session.get('hungry');
+  if( hungry == false){
     $('.chef-half').addClass('chef-happy');
+    $('.hungry-half').addClass('hungry-sad');
+  } else if(hungry == true) {
+    $('.chef-half').addClass('chef-sad');
+    $('.hungry-half').addClass('hungry-happy');
   } else {
     $('.chef-half').addClass('chef-sad');
+    $('.hungry-half').addClass('hungry-sad');
   }
 };

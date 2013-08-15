@@ -11,6 +11,18 @@
      -moz-box-shadow: inset -1px -1px 5px 0px rgba(150, 150, 150, 1);
           box-shadow: inset -1px -1px 5px 0px rgba(150, 150, 150, 1);
 }
+.hungry-sad{
+  background-image:url('http://i.imgur.com/nDQHL0E.jpg');
+  background-size:50% 70%;
+  background-position:left bottom;
+  background-repeat:no-repeat;
+}
+.hungry-happy{
+  background-image:url('http://i.imgur.com/XHKyO8Z.jpg');
+  background-size:43% 70%;
+  background-position:left bottom;
+  background-repeat:no-repeat;
+}
 .chef-half{
   position:absolute;
   top:0;
