@@ -1,10 +1,13 @@
 <body>
+</body>
+
+<template name="layout">
   <div class="container">
     <div class="top-container">
       {{> logo}}
-      {{> title}}
+      {{yield 'title'}}
       {{> tools}}
     </div>
-    {{> primary}}
+    {{yield}}
   </div>
-</body>
+</template>
