@@ -39,7 +39,14 @@ var hungrySignup = function(){
   }else{
     Accounts.createUser({
       username: user,
-      password: pass
+      password: pass,
+      profile: {hungry:true} // ensure that the user is NOT a chef (is hungry)
+    }, function(err){
+      if(err){
+        alert(err);
+      } else {
+        // handle signup
+      }
     });
   }
 };
