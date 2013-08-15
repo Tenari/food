@@ -4,3 +4,10 @@
 .hide{
   display:none;
 }
+.error{
+  background-color:#DB8181;
+  color:#A61616;
+  border:1px solid #A61616;
+  padding:5px;
+  margin:2px;
+}

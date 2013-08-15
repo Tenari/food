@@ -24,9 +24,12 @@
     <input type="button" value="Sign up" id="hungry-signup"/>
     <input type="button" value="Login" id="hungry-login"/>
     <input type="button" value="No Account" id="hungry-noacct"/>
-  {{else}}
-    <p>Name:</p>
-    <input type="text" id="username" value=""/>
+  {{/if}}
+  {{#if up}}
+    {{> signup}}
+  {{/if}}
+  {{#if lin}}
+    {{> login}}
   {{/if}}
 </template>
 
@@ -35,6 +38,24 @@
     <input type="button" value="Sign up" id="chef-signup"/>
     <input type="button" value="Login" id="chef-login"/>
   {{else}}
-    <p>Stuff</p>
+    <p>Unsupported right now.</p>
   {{/if}}
+</template>
+
+<template name="signup">
+  <p>Email or Name:</p>
+  <input type="text" id="username" value=""/>
+  <p>Password:</p>
+  <input type="password" id="password" value=""/>
+  <p>Password Confirmation:</p>
+  <input type="password" id="passwordconf" value=""/>
+  <input id="signup" type="submit" value="Sign up"/>
+</template>
+
+<template name="login">
+    <p>Email or Name:</p>
+    <input type="text" id="username" value=""/>
+    <p>Password:</p>
+    <input type="password" id="password" value=""/>
+    <input id="login" type="submit" value="Login"/>
 </template>

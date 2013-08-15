@@ -10,4 +10,5 @@ Router.map(function(){
   this.route('help');
   this.route('legal');
   this.route('about');
+  this.route('account-less');
 });

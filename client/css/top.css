@@ -28,3 +28,9 @@
   right:0;
   margin:10px;
 }
+.tools input{
+  float:right;
+}
+.tools ul{
+  margin-top:30px;
+}
