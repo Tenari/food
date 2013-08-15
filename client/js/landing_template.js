@@ -1,4 +1,10 @@
 Template.landing.events({
+  'mouseenter .chef-half':function(){
+    $('.chef-half').removeClass("chef-sad").addClass('chef-happy');
+  },
+  'mouseleave .chef-half':function(){
+    $('.chef-half').removeClass("chef-happy").addClass('chef-sad');
+  },
   'click .hungry-half': function(){
     if(Session.get('hungry-action')==undefined){
       if(Session.get('hungry')){
@@ -43,3 +49,10 @@ Template.landing.helpers({
     return Session.get('hungry') == false;
   }
 });
+Template.landing.rendered = function(){
+  if(Session.get('hungry') == false){
+    $('.chef-half').addClass('chef-happy');
+  } else {
+    $('.chef-half').addClass('chef-sad');
+  }
+};
