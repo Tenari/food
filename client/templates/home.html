@@ -2,18 +2,39 @@
   <div class='hungry-half'>
     <p class='landing-welcome'>I'm Hungry</p>
 
-    <div class='landing-action' style="display:none">
-      <input type="button" value="Sign up"/>
-      <input type="button" value="Login"/>
-      <input type="button" value="No Account"/>
+    <div class='landing-action'>
+      {{#if hungry}}
+        {{> hungryaction}}
+      {{/if}}
     </div>
   </div>
   <div class='chef-half'>
     <p class='landing-welcome'>Le Chef</p>
 
-    <div class='landing-action' style="display:none">
-      <input type="button" value="Sign up"/>
-      <input type="button" value="Login"/>
+    <div class='landing-action'>
+      {{#if chef}}
+        {{> chefaction}}
+      {{/if}}
     </div>
   </div>
+</template>
+
+<template name="hungryaction">
+  {{#if action}}
+    <input type="button" value="Sign up" id="hungry-signup"/>
+    <input type="button" value="Login" id="hungry-login"/>
+    <input type="button" value="No Account" id="hungry-noacct"/>
+  {{else}}
+    <p>Name:</p>
+    <input type="text" id="username" value=""/>
+  {{/if}}
+</template>
+
+<template name="chefaction">
+  {{#if action}}
+    <input type="button" value="Sign up" id="chef-signup"/>
+    <input type="button" value="Login" id="chef-login"/>
+  {{else}}
+    <p>Stuff</p>
+  {{/if}}
 </template>

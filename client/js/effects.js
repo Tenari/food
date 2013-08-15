@@ -12,17 +12,5 @@ Meteor.effects = {
   },
   showTools: function(){
     Meteor.effects.fadeToggle('toolsOn', $('.tools ul'));
-  },
-  showHungryButtons: function(){
-    Session.set('chef-half', true);
-
-    Meteor.effects.fadeToggle('hungry-half', $('.hungry-half .landing-action'));
-    Meteor.effects.fadeToggle('chef-half', $('.chef-half .landing-action'));
-  },
-  showChefButtons: function(){
-    Session.set('hungry-half',true);
-
-    Meteor.effects.fadeToggle('chef-half', $('.chef-half .landing-action'));
-    Meteor.effects.fadeToggle('hungry-half', $('.hungry-half .landing-action'));
   }
 };
