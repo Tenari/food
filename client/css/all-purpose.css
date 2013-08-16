@@ -25,3 +25,28 @@
      -moz-box-shadow: 0px 0px 15px #888;
           box-shadow: 0px 0px 15px #888; 
 }
+.big-select{
+  margin-left:35%;
+
+  width:30%;
+  margin-top:20px;
+  margin-bottom:30px;
+
+  padding-top:10px;
+  padding-bottom:10px;
+  
+  background:transparent;
+  border-width:2px;
+  border-color:#7EA37E;
+
+  -webkit-box-shadow: 0px 0px 5px 1px #7EA37E;
+     -moz-box-shadow: 0px 0px 5px 1px #7EA37E;
+          box-shadow: 0px 0px 5px 1px #7EA37E;
+
+  font-size:1.2em;
+  color:#8C7C56;
+}
+.order-label{
+  margin-left: 30%;
+  font-size:1.2em;
+}

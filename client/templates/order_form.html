@@ -1,3 +1,19 @@
 <template name="orderform">
-  <h1>Make me <input type="text"/></h1>
+  <div class='orderform'>
+    <select class='big-select' id='order1'>
+      <option value=""></option>
+      <option value="sandwich">a sandwich</option>
+      <option value="pizza">a pizza</option>
+      <option value="meal">a home-cooked meal</option>
+      <option value="weird">something weird</option>
+    </select>
+    <div id="order2">
+      <p class="order-label">Which I</p>
+      <select class='big-select'>
+        <option value="delivery">want delivered</option>
+        <option value="pickup">will go get</option>
+      </select>
+    </div>
+  </div>
+
 </template>
