@@ -10,10 +10,31 @@
     <div id="order2">
       <p class="order-label">Which I</p>
       <select class='big-select'>
+        <option value=""></option>
         <option value="delivery">want delivered</option>
         <option value="pickup">will go get</option>
       </select>
     </div>
+    <div id="order3">
+      <p class="order-label">
+        {{#if delivery}}
+          to
+        {{else}}
+          from
+        {{/if}}
+      </p>
+      Address:
+      <input type="text" id="address" />
+      Zip:
+      <input type="text" class="" id="zip" />
+      City:
+      <input type="text" id="city" />
+      State:
+      <input type="text" id="state" />
+      Country:
+      <input type="text" id="country" />
+    </div>
+    <input type="submit" id="submit" value="Go!"/>
   </div>
 
 </template>

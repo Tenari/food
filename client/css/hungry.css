@@ -1,0 +1,10 @@
+.hungry-main{
+  width:80%;
+  height:100%;
+}
+.hungry-sidebar{
+  float:right;
+  width:20%;
+  height:100%;
+  background-color:#ddd;
+}

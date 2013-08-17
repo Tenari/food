@@ -1,9 +1,12 @@
 <template name="hungry">
+
+  <div class="hungry-sidebar">
+    <h1>{{currentUser.username}}</h1>
+    <p>Integrity: {{currentUser.profile.integrity}}</p>
+  </div>
+
   <div class="hungry-main">
     {{> orderform}}
   </div>
 
-  <div class="hungry-sidebar">
-    
-  </div>
 </template>
