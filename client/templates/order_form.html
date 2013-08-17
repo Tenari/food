@@ -1,6 +1,6 @@
 <template name="orderform">
   <div class='orderform'>
-    <select class='big-select' id='order1'>
+    <select class='big-select' id='order1' data-name="food" data-spot="1">
       <option value=""></option>
       <option value="sandwich">a sandwich</option>
       <option value="pizza">a pizza</option>
@@ -9,7 +9,7 @@
     </select>
     <div id="order2">
       <p class="order-label">Which I</p>
-      <select class='big-select'>
+      <select class='big-select' data-spot="2" data-name="type">
         <option value=""></option>
         <option value="delivery">want delivered</option>
         <option value="pickup">will go get</option>
@@ -24,15 +24,23 @@
         {{/if}}
       </p>
       Address:
-      <input type="text" id="address" />
+      <input type="text" id="address"  data-spot="3" data-name="address"/>
       Zip:
-      <input type="text" class="" id="zip" />
+      <input type="text" class="" id="zip"  data-spot="3" data-name="zip"/>
       City:
-      <input type="text" id="city" />
+      <input type="text" id="city"  data-spot="3" data-name="city"/>
       State:
-      <input type="text" id="state" />
+      <input type="text" id="state"  data-spot="3" data-name="state"/>
       Country:
-      <input type="text" id="country" />
+      <input type="text" id="country"  data-spot="3" data-name="country"/>
+    </div>
+    <div id="order4">
+      <p class="order-label">within</p>
+      <p class="cntr-30p"><input type="number" id="minutes" data-spot="4" data-name="minutes"/>minutes</p>
+    </div>
+    <div id="order5">
+      <p class="order-label">And I'll pay</p>
+      <p class="cntr-30p">$<input type="number" id="price" data-spot="5" data-name="price"/>.00 for it.</p>
     </div>
     <input type="submit" id="submit" value="Go!"/>
   </div>
