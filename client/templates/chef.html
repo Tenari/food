@@ -1,8 +1,21 @@
 <template name="chef">
-  <div class="chef-main">
+  <div class="chef-sidebar">
+    <h1>{{currentUser.username}}</h1>
+    <p>Integrity: {{currentUser.profile.integrity}}</p>
   </div>
 
-  <div class="chef-sidebar">
-    
+  <div class="chef-main">
+    {{#each orders}}
+      {{#if open _id}}
+      <div class="open-order">
+        {{details.food}}
+        {{details.type}}
+        ${{details.price}}.00
+        <input type="button" data-id="{{_id}}" value="Take it" class="accept"/>
+        <input type="button" data-id="{{_id}}" value="Skip it" class="remove"/>
+      </div>
+      {{/if}}
+    {{/each}}
   </div>
+
 </template>

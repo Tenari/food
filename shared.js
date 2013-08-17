@@ -30,7 +30,11 @@ if (Meteor.isServer){
     insert: function(userId, doc){
       return true;
     },
+    update: function(userId, doc, fields, modifier){
+      return fields.length == 1 && fields[0] =='taker';
+    },
     remove: function(userId, doc){
+      // return userId == doc.placer;
       return true;
     }
   });

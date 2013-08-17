@@ -23,9 +23,9 @@
 
 <template name="hungryaction">
   {{#if action}}
-    <input type="button" value="Sign up" id="hungry-signup"/>
-    <input type="button" value="Login" id="hungry-login"/>
-    <input type="button" value="No Account" id="hungry-noacct"/>
+    <input type="button" value="Sign up" id="hungry-signup" class="btn"/>
+    <input type="button" value="Login" id="hungry-login" class="btn"/>
+    <input type="button" value="No Account" id="hungry-noacct" class="btn"/>
   {{/if}}
   {{#if up}}
     {{> signup}}
@@ -37,10 +37,14 @@
 
 <template name="chefaction">
   {{#if action}}
-    <input type="button" value="Sign up" id="chef-signup"/>
-    <input type="button" value="Login" id="chef-login"/>
-  {{else}}
-    <p>Unsupported right now.</p>
+    <input type="button" value="Sign up" id="chef-signup" class="btn"/>
+    <input type="button" value="Login" id="chef-login" class="btn"/>
+  {{/if}}
+  {{#if up}}
+    {{> signup}}
+  {{/if}}
+  {{#if lin}}
+    {{> login}}
   {{/if}}
 </template>
 
