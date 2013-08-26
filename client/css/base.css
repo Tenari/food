@@ -4,3 +4,9 @@ h1{
 html, body, .container{
   height:100%;
 }
+a{
+  color:#9C926A;
+}
+a:hover{
+  color:#ADA379;
+}

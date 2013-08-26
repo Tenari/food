@@ -7,5 +7,8 @@ Template.chef.open = function(id){
 Template.chef.events({
   'click .accept': function(e){
     Orders.update($(e.target).data('id'), {$set: {taker: Meteor.userId()}});
+  },
+  'click .remove': function(e){
+    $(e.target).parent().remove();
   }
 });
