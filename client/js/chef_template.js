@@ -9,6 +9,6 @@ Template.chef.events({
     Orders.update($(e.target).data('id'), {$set: {taker: Meteor.userId()}});
   },
   'click .remove': function(e){
-    $(e.target).parent().remove();
+    $(e.target).parent().parent().remove();
   }
 });

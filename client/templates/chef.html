@@ -8,11 +8,15 @@
     {{#each orders}}
       {{#if open _id}}
       <div class="open-order">
-        {{details.food}}
-        {{details.type}}
-        ${{details.price}}.00
-        <input type="button" data-id="{{_id}}" value="Take it" class="accept"/>
-        <input type="button" data-id="{{_id}}" value="Skip it" class="remove"/>
+        <div class="order-actions">
+          <input type="button" data-id="{{_id}}" value="Take it" class="accept"/>
+          <input type="button" data-id="{{_id}}" value="Skip it" class="remove"/>
+        </div>
+        <div class="order-info">
+          {{details.food}}<br>
+          {{details.type}}<br>
+          ${{details.price}}.00
+        </div>
       </div>
       {{/if}}
     {{/each}}
