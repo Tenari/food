@@ -48,6 +48,7 @@ Template.orderform.events({
           phone: 'none'
         }
       });
+      Session.set('new-order',false);
     }
   }
 });
