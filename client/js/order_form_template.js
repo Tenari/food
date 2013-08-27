@@ -30,6 +30,7 @@ Template.orderform.events({
       Orders.insert({
         placer: Meteor.user()._id,
         taker: "noneyet",
+        finished: "nottaken",
         details: {
           food: $('#order1').val(),
           type: $('#order2 select').val(),

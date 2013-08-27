@@ -11,7 +11,7 @@
           <ul>
           {{#each orders}}
             {{#if own_order _id}}
-              <li><a id="{{_id}}" href="#">{{details.food}},{{details.location.address}}</a></li>
+              <li><a id="{{_id}}" href="#">{{details.food}}, {{details.location.address}}</a></li>
             {{/if}}
           {{/each}}
           </ul>

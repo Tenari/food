@@ -31,7 +31,7 @@ if (Meteor.isServer){
       return true;
     },
     update: function(userId, doc, fields, modifier){
-      return fields.length == 1 && fields[0] =='taker';
+      return fields.length == 1 && (fields[0] =='taker' || fields[0] == 'finished');
     },
     remove: function(userId, doc){
       // return userId == doc.placer;

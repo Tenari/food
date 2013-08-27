@@ -13,6 +13,7 @@ Template.chef.show_current_orders = function(){
 Template.chef.events({
   'click .accept': function(e){
     Orders.update($(e.target).data('id'), {$set: {taker: Meteor.userId()}});
+    Orders.update($(e.target).data('id'), {$set: {finished: "started"}});
   },
   'click .remove': function(e){
     $(e.target).parent().parent().remove();
