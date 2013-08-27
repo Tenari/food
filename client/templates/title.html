@@ -1,7 +1,11 @@
 <template name="title">
   {{#if currentUser}}
      {{#if hungry}}
-       <h1 class="txt-center">Make Me</h1>
+       {{#if no_orders}} 
+         <h1 class="txt-center">Make Me</h1>
+       {{else}}
+         <h1 class="txt-center">Old Orders</h1>
+       {{/if}}
      {{else}}
        <h1 class="txt-center">Open Orders</h1>
      {{/if}}
