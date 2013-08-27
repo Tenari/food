@@ -1,3 +1,9 @@
 <template name="hungryorders">
-  <p>find me in client/templates/hungryorders.html</p>
+  <input type="button" value="New Order" id="new-order" style="float:right" class="btn"/>
+  <h3>Old Orders</h3>
+  <ul>
+    {{#each orders}}
+      <li><a id="{{_id}}" href="#">{{details.food}}, {{finished}}</a></li>
+    {{/each}}
+  </ul>
 </template>
