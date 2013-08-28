@@ -11,7 +11,18 @@
           <ul>
           {{#each orders}}
             {{#if own_order _id}}
-              <li><a id="{{_id}}" href="#">{{details.food}}, {{details.location.address}}</a></li>
+              <li><a class="order-link" id="{{_id}}" href="#">
+              {{#if delivery_order details.type}}
+                take a {{details.food}} to {{details.location.address}}
+              {{else}}
+                make a {{details.food}} for {{username placer}}
+              {{/if}}
+              </a>
+              <div class="side-order-info hide">
+                <strong>Price: </strong>{{details.price}}<br>
+                <strong>Expires in: </strong>{{expires details.expire}}<br>
+              </div>
+              </li>
             {{/if}}
           {{/each}}
           </ul>
