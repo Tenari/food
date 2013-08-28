@@ -1,25 +1,35 @@
 Template.hungryorders.orders = function(){
   return Orders.find({placer: Meteor.user()._id}).fetch();
 };
+Template.hungryorders.new_orders = function(){
+  return Orders.find({placer: Meteor.user()._id, finished: "nottaken"}).fetch();
+};
+Template.hungryorders.started_orders = function(){
+  return Orders.find({placer: Meteor.user()._id, finished: "started"}).fetch();
+};
+Template.hungryorders.delivered_orders = function(){
+  return Orders.find({placer: Meteor.user()._id, finished: "delivered"}).fetch();
+};
+Template.hungryorders.old_orders = function(){
+  return Orders.find({placer: Meteor.user()._id, finished: "complete"}).fetch();
+};
+Template.hungryorders.chef_name = function(order_id){
+  var chef_obj = Meteor.users.find(Orders.find(order_id).fetch()[0].taker).fetch()[0];
+  if (chef_obj != undefined)
+    return chef_obj.username;
+  return "--";
+};
 Template.hungryorders.events({
   'click .order-link': function(e){
-    //clear all the old chef infos
-    $('.chef-info').remove();
-
     var order_id = $(e.target).attr("id");
-    var taker_id = Orders.find(order_id).fetch()[0].taker;
-    var taker_obj = Meteor.users.find(taker_id).fetch()[0];
     var $container = $(e.target).parent();
 
-    if (Session.get('chef-info') != order_id){
-      if(taker_obj != undefined){
-        $container.append("<p class='chef-info'><strong>Chef Name:</strong>"+taker_obj.username+"</p>");
-      } else{
-        $container.append("<p class='chef-info'><strong>Chef Name:</strong> -- </p>");
-      }
-      Session.set('chef-info', order_id);
+    if (Session.get(order_id) != true){
+      $container.children(".hungry-order-info").removeClass("hide");
+      Session.set(order_id, true);
     }else{
-      Session.set('chef-info', undefined);
+      Session.set(order_id, false);
+      $container.children(".hungry-order-info").addClass("hide");
     }
   }
 });

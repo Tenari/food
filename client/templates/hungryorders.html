@@ -1,8 +1,36 @@
 <template name="hungryorders">
-  <input type="button" value="New Order" id="new-order" style="float:right" class="btn"/>
-  <ul>
-    {{#each orders}}
-      <li><a class="order-link" id="{{_id}}" href="#">{{details.food}}, {{finished}}</a></li>
+  <ul class="main-col-left">
+    New Orders
+    {{#each new_orders}}
+      <li>
+        <a class="order-link" id="{{_id}}" href="#">{{details.food}}</a>
+        <div class="hungry-order-info hide">
+          <p class="chef-name"><strong>Chef Name: </strong>--</p>
+        </div>
+      </li>
     {{/each}}
   </ul>
+  <ul class="main-col-mid">
+    In Progress Orders
+    {{#each started_orders}}
+      <li>
+        <a class="order-link" id="{{_id}}" href="#">{{details.food}}</a>
+        <div class="hungry-order-info hide">
+          <p class="chef-name"><strong>Chef Name: </strong>{{chef_name _id}}</p>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+  <ul class="main-col-right">
+    Orders to Rate
+    {{#each delivered_orders}}
+      <li>
+        <a class="order-link" id="{{_id}}" href="#">{{details.food}}</a>
+        <div class="hungry-order-info hide">
+          <p class="chef-name"><strong>Chef Name: </strong>{{chef_name _id}}</p>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+  <input type="button" value="New Order" id="new-order" style="float:right" class="btn"/>
 </template>

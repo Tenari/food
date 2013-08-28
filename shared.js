@@ -14,7 +14,7 @@ Router.map(function(){
 });
 
 Orders = new Meteor.Collection('orders');
-// { placer: user_id, taker: user_id,
+// { placer: user_id, taker: user_id, finished: 'started'
 //   details: { food: 'sandwich', type: 'delivery', max_distance: 5,
 //              location: { address: '3105 Bay Ridge Ct', zip: '77546',
 //                          city: 'friendswood', state: 'TX', country: 'USA' }
@@ -39,3 +39,6 @@ if (Meteor.isServer){
     }
   });
 }
+Ratings = new Meteor.Collection('ratings');
+// { rater: user_id, ratee: user_id, rating: 5,
+//   details: { comments: 'he was chill.', order: order_id }}

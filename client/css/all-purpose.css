@@ -83,3 +83,20 @@
   width:30%;
   margin-left:35%;
 }
+.main-col-left{
+position:absolute;
+top:100px;
+left:0;
+  width:26%;
+}
+.main-col-mid{
+position:absolute;
+top:100px;
+left:26%;
+  width:26%;
+}
+.main-col-right{
+position:absolute;
+left:53%;
+  width:26%;
+}

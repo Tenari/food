@@ -47,22 +47,16 @@ Template.chef.events({
     }
   },
   'click .order-link': function(e){
-    //clear all the old chef infos
-
     var order_id = $(e.target).attr("id");
     var order_obj = Orders.find(order_id).fetch()[0];
     var $container = $(e.target).parent();
 
 
-    if (Session.get('side-order-info') != order_id){
-      if(order_obj != undefined){
-        $container.children(".side-order-info").removeClass("hide");
-      } else{
-        $container.append("<div class='side-order-info'><strong>Price: </strong> -- </div>");
-      }
-      Session.set('side-order-info', order_id);
+    if (Session.get(order_id) != true){
+      $container.children(".side-order-info").removeClass("hide");
+      Session.set(order_id, true);
     }else{
-      Session.set('side-order-info', undefined);
+      Session.set(order_id, false);
       $container.children(".side-order-info").addClass("hide");
     }
   },
