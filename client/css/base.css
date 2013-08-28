@@ -10,3 +10,12 @@ a{
 a:hover{
   color:#ADA379;
 }
+input[type="text"]{
+  font-size:1.2em;
+  border:2px solid #6A7C99;
+  width:100%;
+  color:#8C7C56;
+  -webkit-box-shadow: 0px 0px 5px 1px #7EA37E;
+     -moz-box-shadow: 0px 0px 5px 1px #7EA37E;
+          box-shadow: 0px 0px 5px 1px #7EA37E;
+}
