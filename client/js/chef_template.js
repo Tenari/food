@@ -2,7 +2,10 @@ Template.chef.orders = function(){
   return Orders.find();
 };
 Template.chef.open = function(id){
-  return Orders.find(id).fetch()[0].taker == "noneyet";
+  var order_obj = Orders.find(id).fetch()[0];
+  var now_time = new Date().getTime();
+  return (order_obj.taker == "noneyet")           // no one has taken it yet.
+         && (order_obj.details.expire > now_time);// it has not expired yet.
 };
 Template.chef.own_started_order = function(id){
   var order_obj = Orders.find(id).fetch()[0];
@@ -29,7 +32,7 @@ Template.chef.username = function(id){
 Template.chef.expires = function(expire){
   var now_time = new Date().getTime();
   
-  return Math.max(0, (expire - now_time));
+  return Math.max(0, ((expire - now_time)/1000));
 };
 Template.chef.events({
   'click .accept': function(e){
@@ -65,3 +68,15 @@ Template.chef.events({
     Orders.update(order_id, {$set: {finished: "delivered"}});
   }
 });
+Template.chef.rendered = function(){
+  $('.time').each(function(index, val){
+    var me = $(this);
+    if ( parseInt(me.text()) >0 ){
+      window.setInterval(function(){
+        var current_time = parseInt(me.text());
+        if(current_time > 0)
+          me.text(current_time-1);
+      },1000);
+    }
+  });
+};
