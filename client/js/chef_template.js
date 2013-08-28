@@ -4,6 +4,16 @@ Template.chef.orders = function(){
 Template.chef.open = function(id){
   return Orders.find(id).fetch()[0].taker == "noneyet";
 };
+Template.chef.own_started_order = function(id){
+  var order_obj = Orders.find(id).fetch()[0];
+  return (order_obj.taker == Meteor.user()._id)
+         && (order_obj.finished == "started");
+};
+Template.chef.own_delivered_order = function(id){
+  var order_obj = Orders.find(id).fetch()[0];
+  return (order_obj.taker == Meteor.user()._id)
+         && (order_obj.finished == "delivered");
+};
 Template.chef.own_order = function(id){
   return Orders.find(id).fetch()[0].taker == Meteor.user()._id;
 };
@@ -55,5 +65,9 @@ Template.chef.events({
       Session.set('side-order-info', undefined);
       $container.children(".side-order-info").addClass("hide");
     }
+  },
+  'click .order-finished-btn': function(e){
+    var order_id = $(e.target).data("id") ;
+    Orders.update(order_id, {$set: {finished: "delivered"}});
   }
 });
