@@ -43,7 +43,7 @@ Template.orderform.events({
             country: $('#country').val()
           },
           expire: new Date().getTime() + ($('#minutes').val()*60*1000),
-          specifics: '',
+          specifics: $('#specifics').val(),
           price: $('#price').val(),
           phone: 'none'
         }
@@ -92,6 +92,7 @@ Template.orderform.zipgood = function(){
         (!zip_val.match(/[a-z]/ig));
   return zip;
 };
+Template.orderform.validate6 = function(){return true;};
 Template.orderform.validate5 = function(){
   if ($('#price').val() <= 0){
     $('#price').val('0');
