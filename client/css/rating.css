@@ -1,0 +1,16 @@
+.five-star-container{
+  height:24px;
+  width:130px;
+}
+.star{
+  display:inline-block;
+  height:20px;
+  width:20px;
+  margin:1px;
+}
+.star-off{
+  background-image: url('http://i.imgur.com/WrV4w1O.png');
+}
+.star-on{
+  background-image: url('http://i.imgur.com/UoFWOcI.png');
+}
