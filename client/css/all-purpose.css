@@ -79,24 +79,12 @@ background-color:#9cc9db;
 position:relative;
 top:1px;
 }
-.dash-btn{
-  width:100%;
-  padding-top:10px;
-  padding-bottom:10px;
-  background-color:#BFAF8A;
-  border:1px solid #B3A381;
-  color:#5F799C;
-}
-.dash-btn:hover{
-  background-color:#C9BA95;
-}.dash-btn:active {
-  position:relative;
-  right:1px;
-}
 .cntr-30p{
   width:30%;
   margin-left:35%;
 }
+
+/* Provides a 3-column layout on the main chunk (80% width) */
 .main-col-left{
   position:absolute;
   top:100px;
@@ -113,8 +101,4 @@ top:1px;
   position:absolute;
   left:53%;
   width:26%;
-}
-.dash-jewel{
-  float:left;
-  color:red;
 }
