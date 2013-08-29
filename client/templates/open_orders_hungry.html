@@ -1,0 +1,24 @@
+<template name="open_orders_hungry">
+  <ul>
+    {{#each new_orders}}
+      <li>
+        <a class="order-link" id="{{_id}}" href="#">{{details.food}}</a>
+        <div class="hungry-order-info hide">
+          <p class="chef-name"><strong>Chef Name: </strong>--</p>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+  <hr>
+    <a href="#" id="show-expired">Expired Orders</a>
+    <ul id="expired-list" class="hide">
+      {{#each dead_orders}}
+        <li>
+          <a class="order-link" id="{{_id}}" href="#">{{details.food}}</a>
+          <div class="hungry-order-info hide">
+            <p class="expired-time"><strong>Expired at: </strong>{{timestamp_to_date details.expire}}</p>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+</template>

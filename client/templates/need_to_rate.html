@@ -1,0 +1,13 @@
+<template name="need_to_rate">
+  <ul>
+    {{#each delivered_orders}}
+      <li>
+        <a class="order-link rate-link" id="{{_id}}" href="#">{{details.food}}</a>
+        <div class="hungry-order-info hide">
+          <p class="chef-name"><strong>Chef Name: </strong>{{chef_name _id}}</p>
+        </div>
+        {{> rate_modal}}
+      </li>
+    {{/each}}
+  </ul>
+</template>

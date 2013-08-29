@@ -1,15 +1,32 @@
 <template name="hungry">
 
   <div class="hungry-sidebar">
-    <h1>{{currentUser.username}}</h1>
-    <p>Integrity: {{currentUser.profile.integrity}}</p>
+    <button id="new-order" class="dash-btn">New Order</button>
+    <button id="open-orders" class="dash-btn"><span class="dash-jewel">{{open_count}}</span>Open Orders</button>
+    <button id="started-orders" class="dash-btn"><span class="dash-jewel">{{en_route_count}}</span>En Route Orders</button>
+    <button id="need-to-rate" class="dash-btn"><span class="dash-jewel">{{to_rate_count}}</span>Orders to Rate</button>
+    <button id="full-history" class="dash-btn">Full Order History</button>
+    <button id="profile" class="dash-btn">Profile</button>
   </div>
 
   <div class="hungry-main">
     {{#if no_orders}}
       {{> orderform}}
-    {{else}}
-      {{> hungryorders}}
+    {{/if}}
+    {{#if view 'profile'}}
+      {{> own_profile}}
+    {{/if}}
+    {{#if view 'open-orders'}}
+      {{> open_orders_hungry}}
+    {{/if}}
+    {{#if view 'started-orders'}}
+      {{> started_orders_hungry}}
+    {{/if}}
+    {{#if view 'need-to-rate'}}
+      {{> need_to_rate}}
+    {{/if}}
+    {{#if view 'full-history'}}
+      {{> full_order_history}}
     {{/if}}
   </div>
 

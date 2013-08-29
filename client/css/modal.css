@@ -26,3 +26,6 @@
   right:0;
   top:0;
 }
+.modal-close:hover{
+  text-shadow: -2px 1px 3px rgba(150, 150, 150, 1);
+}
