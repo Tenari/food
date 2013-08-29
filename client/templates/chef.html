@@ -20,7 +20,8 @@
               </a>
               <div class="side-order-info hide">
                 <input type="button" class="order-finished-btn" data-id="{{_id}}" value="Finished" style="float:right"/>
-                <strong>Price: </strong>{{details.price}}<br>
+                <strong>Price: </strong>${{details.price}}<br>
+                <strong>Details: </strong>{{details.specifics}}<br>
               </div>
               </li>
             {{/if}}
@@ -38,12 +39,21 @@
         <div class="order-actions">
           <input type="button" data-id="{{_id}}" value="Take it" class="accept"/>
           <input type="button" data-id="{{_id}}" value="Skip it" class="remove"/>
+          <input type="button" data-id="{{_id}}" value="More info" class="more-info"/>
         </div>
         <div class="order-info">
           {{details.food}}<br>
           {{details.type}}<br>
           ${{details.price}}.00<br>
           <span class="order-timer"><span class="time">{{expires details.expire}}</span>s left!</span>
+        </div>
+        <div class="rate-modal hide">
+          <span class="modal-close">X</span>
+          <p>{{username placer}} wants a {{food_phrasing details.food}}<br>
+          {{details.type}}<br>
+          ${{details.price}}.00<br>
+          {{details.location.address}}<br>
+          {{details.specifics}}</p>
         </div>
       </div>
       {{/if}}

@@ -21,3 +21,8 @@
 
   background-color:rgba(50,50,50,0.8);
 }
+.modal-close{
+  position:absolute;
+  right:0;
+  top:0;
+}

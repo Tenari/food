@@ -34,6 +34,16 @@ Template.chef.expires = function(expire){
   
   return Math.max(0, ((expire - now_time)/1000));
 };
+Template.chef.food_phrasing = function(food){
+  switch(food){
+    case 'weird':
+      return "weird thing";
+    case 'meal':
+      return "home-cooked meal";
+    default:
+      return food;
+  }
+};
 Template.chef.events({
   'click .accept': function(e){
     Orders.update($(e.target).data('id'), {$set: {taker: Meteor.userId()}});
@@ -41,6 +51,10 @@ Template.chef.events({
   },
   'click .remove': function(e){
     $(e.target).parent().parent().remove();
+  },
+  'click .more-info': function(e){
+    $(e.target).parent().parent().children('.rate-modal').removeClass('hide');
+    $('.container').append('<div class="hidden-background"></div>');
   },
   'click #show-current-orders': function(e){
     if (Session.get('show-current-orders')){
