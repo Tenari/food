@@ -37,6 +37,15 @@ Template.hungryorders.events({
       $container.children(".hungry-order-info").addClass("hide");
     }
   },
+  'click .rate-link': function(e){
+    var order_id = $(e.target).attr("id");
+
+    if (Session.get(order_id) == true){
+      $(e.target).parent().children(".rate-modal").removeClass('hide');
+      $('.container').append('<div class="hidden-background"></div>');
+      Session.set(order_id, true);
+    }
+  },
   'click #show-expired': function(e){
     var $list = $('#expired-list');
     if ($list.hasClass("hide")){
