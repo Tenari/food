@@ -21,11 +21,13 @@ Orders = new Meteor.Collection('orders');
 //              expire: '--timestamp--', specifics: '--user's message here--'
 //              price: 5, phone: '281-857-0913'}}
 if (Meteor.isServer){
-  Orders.deny({
-    insert: function(userId, doc){
-      return Orders.find({placer: userId, taker:"noneyet"}).count() != 0;
-    }
-  });
+//  Orders.deny({
+//    insert: function(userId, doc){
+////    return Orders.find({placer: userId, taker:"noneyet"}).count() != 0;
+////    do real validations
+//      return true;
+//    }
+//  });
   Orders.allow({
     insert: function(userId, doc){
       return true;

@@ -1,8 +1,13 @@
 Template.hungryorders.orders = function(){
   return Orders.find({placer: Meteor.user()._id}).fetch();
 };
+Template.hungryorders.dead_orders = function(){
+  var now_time = new Date().getTime();
+  return Orders.find({placer: Meteor.user()._id, finished: "nottaken", "details.expire": {$lt: now_time}}).fetch();
+};
 Template.hungryorders.new_orders = function(){
-  return Orders.find({placer: Meteor.user()._id, finished: "nottaken"}).fetch();
+  var now_time = new Date().getTime();
+  return Orders.find({placer: Meteor.user()._id, finished: "nottaken", "details.expire": {$gt: now_time}}).fetch();
 };
 Template.hungryorders.started_orders = function(){
   return Orders.find({placer: Meteor.user()._id, finished: "started"}).fetch();
@@ -30,6 +35,14 @@ Template.hungryorders.events({
     }else{
       Session.set(order_id, false);
       $container.children(".hungry-order-info").addClass("hide");
+    }
+  },
+  'click #show-expired': function(e){
+    var $list = $('#expired-list');
+    if ($list.hasClass("hide")){
+      $list.removeClass('hide');
+    } else {
+      $list.addClass('hide');
     }
   }
 });

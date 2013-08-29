@@ -1,15 +1,28 @@
 <template name="hungryorders">
-  <ul class="main-col-left">
+  <div class="main-col-left">
     New Orders
-    {{#each new_orders}}
-      <li>
-        <a class="order-link" id="{{_id}}" href="#">{{details.food}}</a>
-        <div class="hungry-order-info hide">
-          <p class="chef-name"><strong>Chef Name: </strong>--</p>
-        </div>
-      </li>
-    {{/each}}
-  </ul>
+    <ul>
+      {{#each new_orders}}
+        <li>
+          <a class="order-link" id="{{_id}}" href="#">{{details.food}}</a>
+          <div class="hungry-order-info hide">
+            <p class="chef-name"><strong>Chef Name: </strong>--</p>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+    <a href="#" id="show-expired">Expired Orders</a>
+    <ul id="expired-list" class="hide">
+      {{#each dead_orders}}
+        <li>
+          <a class="order-link" id="{{_id}}" href="#">{{details.food}}</a>
+          <div class="hungry-order-info hide">
+            <p class="chef-name"><strong>Chef Name: </strong>--</p>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
   <ul class="main-col-mid">
     In Progress Orders
     {{#each started_orders}}
