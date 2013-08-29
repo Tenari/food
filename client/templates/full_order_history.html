@@ -1,3 +1,14 @@
 <template name="full_order_history">
-  unfinished
+  <ul>
+  {{#each orders}}
+      <li>
+        <a class="order-link" id="{{_id}}" href="#">{{details.food}}</a>
+        <div class="hungry-order-info hide">
+          <p class="info-status"><strong>Status: </strong>{{finished}}</p>
+          <p class="chef-name"><strong>Chef Name: </strong>{{chef_name _id}}</p>
+          <p class="specifics"><strong>Specifics: </strong>{{details.specifics}}</p>
+        </div>
+      </li>
+  {{/each}}
+  </ul>
 </template>
