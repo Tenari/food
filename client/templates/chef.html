@@ -1,11 +1,13 @@
 <template name="chef">
   <div class="sidebar">
+    <div class="body-spacer"></div>
     <button id="profile" class="dash-btn">Profile</button>
     <button id="open-orders" class="dash-btn">{{{open_count_jewel}}}Open Orders</button>
     <button id="started-orders" class="dash-btn">{{{taken_count_jewel}}}Accepted Orders</button>
   </div>
 
   <div class="main">
+    <div class="body-spacer"></div>
     {{#if view 'profile'}}
       {{> profile_chef}}
     {{/if}}

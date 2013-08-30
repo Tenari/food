@@ -1,0 +1,24 @@
+.big-select{
+  margin-left:35%;
+
+  width:30%;
+  margin-top:20px;
+  margin-bottom:30px;
+
+  padding-top:10px;
+  padding-bottom:10px;
+  
+  background:transparent;
+  border:2px solid #000;
+
+  -webkit-box-shadow: 0px 0px 5px 1px #888;
+     -moz-box-shadow: 0px 0px 5px 1px #888;
+          box-shadow: 0px 0px 5px 1px #888;
+
+  font-size:1.2em;
+  color:#000;
+}
+.order-label{
+  margin-left: 30%;
+  font-size:1.2em;
+}
