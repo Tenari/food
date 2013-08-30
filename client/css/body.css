@@ -1,9 +1,13 @@
-.hungry-main{
+.main{
   width:80%;
   height:100%;
+  padding:10px;
+  background-color:#DEDFE0;
 }
-.hungry-sidebar{
+.sidebar{
   float:right;
+  position:relative;
+  z-index:1000;
   width:20%;
   height:100%;
   background-color:#9C895D;

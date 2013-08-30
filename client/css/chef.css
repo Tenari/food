@@ -1,16 +1,3 @@
-.chef-main{
-  width:80%;
-  height:100%;
-}
-.chef-sidebar{
-  float:right;
-  width:20%;
-  height:100%;
-  background-color:#9C895D;
-  -webkit-box-shadow: inset 1px -1px 6px 1px #444;
-     -moz-box-shadow: inset 1px -1px 6px 1px #444;
-          box-shadow: inset 1px -1px 6px 1px #444;
-}
 .open-order{
   display:inline-block;
   margin:15px;

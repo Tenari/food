@@ -1,6 +1,5 @@
 <template name="hungry">
-
-  <div class="hungry-sidebar">
+  <div class="sidebar">
     <button id="new-order" class="dash-btn">New Order</button>
     <button id="open-orders" class="dash-btn">{{{open_count_jewel}}}</span>Open Orders</button>
     <button id="started-orders" class="dash-btn">{{{en_route_count_jewel}}}</span>En Route Orders</button>
@@ -9,7 +8,7 @@
     <button id="profile" class="dash-btn">Profile</button>
   </div>
 
-  <div class="hungry-main">
+  <div class="main">
     {{#if no_orders}}
       {{> orderform}}
     {{/if}}
