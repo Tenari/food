@@ -1,3 +1,54 @@
+Template.orderform.helpers({
+  odds: function(e){
+    // super basic odds. should get more specific as they fill out the form.
+    var done_orders = Orders.find({finished: {$in: ["rated","delivered"]}}).count();
+    var total_orders = Orders.find().count();
+    return (done_orders/total_orders*100).toFixed(2);
+  },
+  delivery: function(){
+    return Session.get('order-type') == 'delivery';
+  },
+  isValid: function(){
+    var address, zip, city, state, country;
+    zip = Template.orderform.zipgood();
+  //  return address && zip && city && state && country;
+    return zip;
+  },
+  zipgood: function(){
+    var zip;
+    var zip_val = $('#zip').val().trim();
+    zip = (zip_val.length == 5)
+          &&
+          (!zip_val.match(/[a-z]/ig));
+    return zip;
+  },
+  validate6: function(){return true;},
+  validate5: function(){
+    if ($('#price').val() <= 0){
+      $('#price').val('0');
+    }
+    if ($('#price').val() < 5){
+      $('#price-encouragment').remove();
+      $('#order5 p:last').append("<p id='price-encouragment'>You can do better, bro.</p>");
+    } else {
+      $('#price-encouragment').remove();
+    }
+    return true;
+  },
+  validate4: function(){
+    if ($('#minutes').val() <= 0){
+      $('#minutes').val('0');
+    }
+    return true;
+  },
+  validate3: function(){
+    return Template.orderform.isValid();
+  },
+  validate2: function(){
+    Session.set('order-type', $('#order2 select').val());
+    return true;
+  }
+});
 Template.orderform.events({
   'change': function(e){
     var spot = $(e.target).data('spot');
@@ -27,11 +78,13 @@ Template.orderform.events({
   },
   'click #submit':function(){
     if (Template.orderform.isValid()) {
+      var now_time = new Date().getTime();
       Orders.insert({
         placer: Meteor.user()._id,
         taker: "noneyet",
         finished: "nottaken",
         details: {
+          placed: now_time,
           food: $('#order1').val(),
           type: $('#order2 select').val(),
           max_distance: 50,
@@ -42,7 +95,7 @@ Template.orderform.events({
             state: $('#state').val(),
             country: $('#country').val()
           },
-          expire: new Date().getTime() + ($('#minutes').val()*60*1000),
+          expire: now_time + ($('#minutes').val()*60*1000),
           specifics: $('#specifics').val(),
           price: $('#price').val(),
           phone: 'none'
@@ -88,47 +141,4 @@ Template.orderform.rendered = function(){
   $('#price').val(Session.get('order-price'));
   $('#minutes').val(Session.get('order-minutes'));
   $('#specifics').val(Session.get('order-specifics'));
-};
-Template.orderform.delivery = function(){
-  return Session.get('order-type') == 'delivery';
-};
-Template.orderform.isValid = function(){
-  var address, zip, city, state, country;
-  zip = Template.orderform.zipgood();
-//  return address && zip && city && state && country;
-  return zip;
-};
-Template.orderform.zipgood = function(){
-  var zip;
-  var zip_val = $('#zip').val().trim();
-  zip = (zip_val.length == 5)
-        &&
-        (!zip_val.match(/[a-z]/ig));
-  return zip;
-};
-Template.orderform.validate6 = function(){return true;};
-Template.orderform.validate5 = function(){
-  if ($('#price').val() <= 0){
-    $('#price').val('0');
-  }
-  if ($('#price').val() < 5){
-    $('#price-encouragment').remove();
-    $('#order5 p:last').append("<p id='price-encouragment'>You can do better, bro.</p>");
-  } else {
-    $('#price-encouragment').remove();
-  }
-  return true;
-};
-Template.orderform.validate4 = function(){
-  if ($('#minutes').val() <= 0){
-    $('#minutes').val('0');
-  }
-  return true;
-};
-Template.orderform.validate3 = function(){
-  return Template.orderform.isValid();
-};
-Template.orderform.validate2 = function(){
-  Session.set('order-type', $('#order2 select').val());
-  return true;
 };
