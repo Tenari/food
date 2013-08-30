@@ -1,14 +1,22 @@
 <template name="open_orders_hungry">
-  <ul>
     {{#each new_orders}}
-      <li>
-        <a class="order-link" id="{{_id}}" href="#">{{details.food}}</a>
-        <div class="hungry-order-info hide">
-          <p class="chef-name"><strong>Chef Name: </strong>--</p>
+      <div class="open-order">
+        <div class="order-info">
+          {{details.food}}<br>
+          {{details.type}}<br>
+          ${{details.price}}.00<br>
+          <span class="order-timer"><span class="time">{{expires details.expire}}</span>s left!</span>
         </div>
-      </li>
+        <input type="button" data-id="{{_id}}" value="More info" class="more-info"/>
+        <div class="rate-modal hide">
+          <button class="modal-close">X</button>
+          <p>You want a {{food_phrasing details.food}}, for {{details.type}}.<br>
+          You're paying ${{details.price}}.00,<br>
+          and you're at {{details.location.address}}.<br>
+          More spcifically, you want: {{details.specifics}}</p>
+        </div>
+      </div>
     {{/each}}
-  </ul>
   <hr>
     <a href="#" id="show-expired">Expired Orders</a>
     <ul id="expired-list" class="hide">

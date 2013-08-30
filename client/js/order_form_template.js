@@ -48,7 +48,20 @@ Template.orderform.events({
           phone: 'none'
         }
       });
-      Session.set('new-order',false);
+      Session.set('dash-view','open-orders');  // automatically switch to the open orders view.
+
+      // unset all the form elements. the form is wonky if we don't do this.
+      Session.set('order-spot', undefined);
+      Session.set('order-food', undefined);
+      Session.set('order-type', undefined);
+      Session.set('order-address', undefined);
+      Session.set('order-zip', undefined);
+      Session.set('order-city', undefined);
+      Session.set('order-state', undefined);
+      Session.set('order-country', undefined);
+      Session.set('order-price', undefined);
+      Session.set('order-minutes', undefined);
+      Session.set('order-specifics', undefined);
     }
   }
 });
@@ -74,6 +87,7 @@ Template.orderform.rendered = function(){
   $('#country').val(Session.get('order-country'));
   $('#price').val(Session.get('order-price'));
   $('#minutes').val(Session.get('order-minutes'));
+  $('#specifics').val(Session.get('order-specifics'));
 };
 Template.orderform.delivery = function(){
   return Session.get('order-type') == 'delivery';

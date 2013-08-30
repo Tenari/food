@@ -82,15 +82,3 @@ Template.chef.events({
     Orders.update(order_id, {$set: {finished: "delivered"}});
   }
 });
-Template.chef.rendered = function(){
-  $('.time').each(function(index, val){
-    var me = $(this);
-    if ( parseInt(me.text()) >0 ){
-      window.setInterval(function(){
-        var current_time = parseInt(me.text());
-        if(current_time > 0)
-          me.text(current_time-1);
-      },1000);
-    }
-  });
-};
