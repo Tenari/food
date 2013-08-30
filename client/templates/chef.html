@@ -1,62 +1,19 @@
 <template name="chef">
   <div class="chef-sidebar">
-    <h1>{{currentUser.username}}</h1>
-    <p>Integrity: {{currentUser.profile.integrity}}</p>
-    <div class="accordion">
-      <div class="accordion-head">
-        <a id="show-current-orders" href="#">Current Orders</a>
-      </div>
-      <div class="accordion-body">
-        {{#if show_current_orders}}
-          <ul>
-          {{#each orders}}
-            {{#if own_started_order _id}}
-              <li><a class="order-link" id="{{_id}}" href="#">
-              {{#if delivery_order details.type}}
-                take a {{details.food}} to {{details.location.address}}
-              {{else}}
-                make a {{details.food}} for {{username placer}}
-              {{/if}}
-              </a>
-              <div class="side-order-info hide">
-                <input type="button" class="order-finished-btn" data-id="{{_id}}" value="Finished" style="float:right"/>
-                <strong>Price: </strong>${{details.price}}<br>
-                <strong>Details: </strong>{{details.specifics}}<br>
-              </div>
-              </li>
-            {{/if}}
-          {{/each}}
-          </ul>
-        {{/if}}
-      </div>
-    </div>
+    <button id="profile" class="dash-btn">Profile</button>
+    <button id="open-orders" class="dash-btn">{{{open_count_jewel}}}Open Orders</button>
+    <button id="started-orders" class="dash-btn">{{{taken_count_jewel}}}Accepted Orders</button>
   </div>
 
   <div class="chef-main">
-    {{#each orders}}
-      {{#if open _id}}
-      <div class="open-order">
-        <div class="order-actions">
-          <input type="button" data-id="{{_id}}" value="Take it" class="accept"/>
-          <input type="button" data-id="{{_id}}" value="Skip it" class="remove"/>
-          <input type="button" data-id="{{_id}}" value="More info" class="more-info"/>
-        </div>
-        <div class="order-info">
-          {{details.food}}<br>
-          {{details.type}}<br>
-          ${{details.price}}.00<br>
-          <span class="order-timer"><span class="time">{{expires details.expire}}</span>s left!</span>
-        </div>
-        <div class="rate-modal hide">
-          <button class="modal-close">X</button>
-          <p>{{username placer}} wants a {{food_phrasing details.food}}<br>
-          {{details.type}}<br>
-          ${{details.price}}.00<br>
-          {{details.location.address}}<br>
-          {{details.specifics}}</p>
-        </div>
-      </div>
-      {{/if}}
-    {{/each}}
+    {{#if view 'profile'}}
+      {{> profile_chef}}
+    {{/if}}
+    {{#if view 'started-orders'}}
+      {{> current_orders_chef}}
+    {{/if}}
+    {{#if view 'open-orders'}}
+      {{> open_orders_chef}}
+    {{/if}}
   </div>
 </template>

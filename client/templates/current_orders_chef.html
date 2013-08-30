@@ -1,0 +1,19 @@
+<template name="current_orders_chef">
+  <ul>
+    {{#each own_started_orders}}
+      <li><a class="order-link" id="{{_id}}" href="#">
+      {{#if delivery_order details.type}}
+        take a {{details.food}} to {{details.location.address}}
+      {{else}}
+        make a {{details.food}} for {{username placer}}
+      {{/if}}
+      </a>
+      <div class="side-order-info hide">
+        <input type="button" class="order-finished-btn" data-id="{{_id}}" value="Finished" style="float:right"/>
+        <strong>Price: </strong>${{details.price}}<br>
+        <strong>Details: </strong>{{details.specifics}}<br>
+      </div>
+      </li>
+    {{/each}}
+  </ul>
+</template>

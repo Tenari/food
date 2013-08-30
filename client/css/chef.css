@@ -6,7 +6,10 @@
   float:right;
   width:20%;
   height:100%;
-  background-color:#ddd;
+  background-color:#9C895D;
+  -webkit-box-shadow: inset 1px -1px 6px 1px #444;
+     -moz-box-shadow: inset 1px -1px 6px 1px #444;
+          box-shadow: inset 1px -1px 6px 1px #444;
 }
 .open-order{
   display:inline-block;
