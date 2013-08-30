@@ -8,22 +8,23 @@ Template.orderform.helpers({
   delivery: function(){
     return Session.get('order-type') == 'delivery';
   },
-  isValid: function(){
+});
+  Template.orderform.isValid= function(){
     var address, zip, city, state, country;
     zip = Template.orderform.zipgood();
   //  return address && zip && city && state && country;
     return zip;
-  },
-  zipgood: function(){
+  };
+  Template.orderform.zipgood= function(){
     var zip;
     var zip_val = $('#zip').val().trim();
     zip = (zip_val.length == 5)
           &&
           (!zip_val.match(/[a-z]/ig));
     return zip;
-  },
-  validate6: function(){return true;},
-  validate5: function(){
+  };
+  Template.orderform.validate6= function(){return true;};
+  Template.orderform.validate5= function(){
     if ($('#price').val() <= 0){
       $('#price').val('0');
     }
@@ -34,21 +35,20 @@ Template.orderform.helpers({
       $('#price-encouragment').remove();
     }
     return true;
-  },
-  validate4: function(){
+  };
+  Template.orderform.validate4= function(){
     if ($('#minutes').val() <= 0){
       $('#minutes').val('0');
     }
     return true;
-  },
-  validate3: function(){
+  };
+  Template.orderform.validate3= function(){
     return Template.orderform.isValid();
-  },
-  validate2: function(){
+  };
+  Template.orderform.validate2= function(){
     Session.set('order-type', $('#order2 select').val());
     return true;
-  }
-});
+  };
 Template.orderform.events({
   'change': function(e){
     var spot = $(e.target).data('spot');
