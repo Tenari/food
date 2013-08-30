@@ -11,6 +11,7 @@
   border:1px solid #B3A381;
   color:#354A66;
   text-shadow:0px 1px 1px #eee;
+  margin:0;
 }.dash-btn:hover{
   background-color:#C9BA95;
 }.dash-btn:active {
