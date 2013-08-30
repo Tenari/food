@@ -21,5 +21,18 @@ Template.title.helpers({
       default: // full-history
         return "Full Ordering History";
     }
+  },
+  chef_title: function(){
+    var state_str = Session.get('dash-view');
+    switch(state_str){
+      case 'open-orders':
+        return "Pick One!";
+      case 'profile':
+        return "All about your wonderful self";
+      case 'started-orders':
+        return "You need to make these.";
+      default: // full-history
+        return "Full Ordering History";
+    }
   }
 });
