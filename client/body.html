@@ -1,5 +1,4 @@
-<body>
-</body>
+<body></body>
 
 <template name="layout">
   <div class="container">
@@ -8,6 +7,28 @@
       {{yield 'title'}}
       {{> tools}}
     </div>
-    {{yield}}
+    {{#if currentUser}}
+        <div class="sidebar">
+          <div class="body-spacer"></div>
+      {{#if currentUser.profile.hungry}}
+          <a href="{{pathFor 'orderform'}}" class="dash-btn">New Order</a>
+          <a href="{{pathFor 'open_orders_hungry'}}" class="dash-btn">{{{open_count_jewel}}}</span>Open Orders</a>
+          <a href="{{pathFor 'started_orders_hungry'}}" class="dash-btn">{{{en_route_count_jewel}}}</span>En Route Orders</a>
+          <a href="{{pathFor 'need_to_rate'}}" class="dash-btn">{{{to_rate_count_jewel}}}</span>Orders to Rate</a>
+          <a href="{{pathFor 'full_order_history'}}" class="dash-btn">Full Order History</a>
+          <a href="{{pathFor 'own_profile'}}" class="dash-btn">Profile</a>
+      {{else}}
+          <a href="{{pathFor 'profile_chef'}}" class="dash-btn">Profile</a>
+          <a href="{{pathFor 'open_orders_chef'}}" class="dash-btn">{{{open_count_jewel}}}Open Orders</a>
+          <a href="{{pathFor 'current_orders_chef'}}" class="dash-btn">{{{taken_count_jewel}}}Accepted Orders</a>
+      {{/if}}
+        </div>
+        <div class="main">
+          <div class="body-spacer"></div>
+          {{yield}}
+        </div>
+    {{else}}
+      {{yield}}
+    {{/if}}
   </div>
 </template>

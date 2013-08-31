@@ -5,14 +5,19 @@
 /* The default button */
 .dash-btn{
   width:100%;
-  padding-top:10px;
-  padding-bottom:10px;
+  padding-top:15px;
+  padding-bottom:15px;
   background-color:#fff;
   border:1px solid #000;
   color:#000;
   text-shadow:0px 1px 1px #888;
   margin:0;
+
+  display:block;
+  text-decoration:none;
+  text-align:center;
 }.dash-btn:hover{
+  color:#000;
   background-color:#f00;
 }.dash-btn:active {
   position:relative;
@@ -27,6 +32,7 @@
   font-weight:bold;
   padding-left:2px;
   padding-right:2px;
+  margin-left:10px;
   background-color:#888;
   border:1px solid #000;
   -webkit-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.75);

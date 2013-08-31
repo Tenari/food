@@ -6,11 +6,22 @@ Router.configure({
 });
 
 Router.map(function(){
-  this.route('primary', {path:"/"});
+  this.route('home', {path:"/"});
   this.route('help');
   this.route('legal');
   this.route('about');
   this.route('account-less');
+
+  this.route('profile_chef');
+  this.route('open_orders_chef');
+  this.route('current_orders_chef');
+
+  this.route('orderform');
+  this.route('own_profile');
+  this.route('open_orders_hungry');
+  this.route('started_orders_hungry');
+  this.route('need_to_rate');
+  this.route('full_order_history');
 });
 
 Orders = new Meteor.Collection('orders');
