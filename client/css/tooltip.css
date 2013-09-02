@@ -1,0 +1,31 @@
+.tip{
+  background-color:#000;
+  color:#fff;
+  font-size:0.8em;
+  padding:4px;
+  border-radius:2px;
+  border:1px solid #888;
+}
+.tip:after, .tip:before {
+right: 100%;
+border: solid transparent;
+content: " ";
+height: 0;
+width: 0;
+position: absolute;
+pointer-events: none;
+}
+.tip:after {
+border-color: rgba(0, 0, 0, 0);
+border-right-color: #000000;
+border-width: 5px;
+top: 50%;
+margin-top: -5px;
+}
+.tip:before {
+border-color: rgba(136, 136, 136, 0);
+border-right-color: #888;
+border-width: 6px;
+top: 50%;
+margin-top: -6px;
+}
