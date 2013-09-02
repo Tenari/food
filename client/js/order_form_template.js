@@ -1,9 +1,21 @@
+// HELPERS
 Template.orderform.helpers({
   odds: function(e){
+    var final_val = 0;
+    var done_orders, total_orders;
+
+    var food = Session.get('order-food');
     // super basic odds. should get more specific as they fill out the form.
-    var done_orders = Orders.find({finished: {$in: ["rated","delivered"]}}).count();
-    var total_orders = Orders.find().count();
-    return (done_orders/total_orders*100).toFixed(2);
+    if(food!=undefined && food !=""){
+      done_orders = Orders.find({finished: {$in: ["rated","delivered"]}, "details.food": food}).count();
+      total_orders = Orders.find({"details.food": food}).count();
+      final_val = parseInt(done_orders/total_orders*100);
+    }else{
+      done_orders = Orders.find({finished: {$in: ["rated","delivered"]}}).count();
+      total_orders = Orders.find().count();
+      final_val = parseInt(done_orders/total_orders*100);
+    }
+    return final_val;
   },
   delivery: function(){
     return Session.get('order-type') == 'delivery';
@@ -49,6 +61,8 @@ Template.orderform.helpers({
     Session.set('order-type', $('#order2 select').val());
     return true;
   };
+
+// EVENTS  
 Template.orderform.events({
   'change': function(e){
     var spot = $(e.target).data('spot');

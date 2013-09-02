@@ -84,11 +84,10 @@ Template.layout.events({
     var elem = $(e.target);
     var e_off = elem.offset();
     var offset = {
-      top: e_off.top - 3,
-      left: e_off.left + elem.width() + 5
+      top: e_off.top + (elem.height()/2),
+      left: e_off.left + elem.width() + 9
     };
     var tip = elem.data('tip');
-
 
     $('body').prepend("<div class='tip' style='display:none'>"+tip+"</div>");
     $('.tip').offset(offset).fadeIn().css("position","absolute");

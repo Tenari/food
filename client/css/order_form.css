@@ -22,3 +22,16 @@
   margin-left: 30%;
   font-size:1.2em;
 }
+.food-odds{
+  background: #888;
+  border:2px solid #000;
+  -moz-border-radius: 2px;
+       border-radius: 2px;
+  color:#f00;
+  font-size:2em;
+  position:fixed;
+  top:90px;
+  left:4px;
+  padding-top:10px;
+  padding-bottom:10px;
+}
