@@ -16,12 +16,12 @@ Template.layout.helpers({
   },
   open_count_jewel: function(){
     var now_time = new Date().getTime();
-    var count = Orders.find({placer: Meteor.user()._id, finished: "nottaken", "details.expire": {$gt: now_time}}).count(); 
+    var count = Orders.find({placer: Meteor.userId(), finished: "nottaken", "details.expire": {$gt: now_time}}).count(); 
     if (count==0)
       return "";
     return "<span class='dash-jewel'>"+count+"</span>";
   },
-  open_count_jewel: function(){
+  chef_open_count_jewel: function(){
     var now_time = new Date().getTime();
     var count = Orders.find({
       taker: "noneyet",

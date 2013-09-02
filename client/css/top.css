@@ -45,6 +45,7 @@
   width:50px;
   background-color:#888;
   border:1px solid #000;
+  color:#000;
 }.tools input:hover{
   background-color:#f00;
 }.tools input:active{
