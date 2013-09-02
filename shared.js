@@ -1,5 +1,6 @@
 Router.configure({
   layout: "layout",
+  notFoundTemplate: "404",
   renderTemplates: {
     'title': {to: 'title'}
   }
@@ -12,16 +13,21 @@ Router.map(function(){
   this.route('about');
   this.route('account-less');
 
-  this.route('profile_chef');
   this.route('open_orders_chef');
   this.route('current_orders_chef');
 
   this.route('orderform');
-  this.route('own_profile');
   this.route('open_orders_hungry');
   this.route('started_orders_hungry');
   this.route('need_to_rate');
   this.route('full_order_history');
+
+  this.route('profile', {
+    path: '/profile/:_id',
+    data: function(){
+      return Meteor.users.findOne(this.params._id);
+    }
+  });
 });
 
 Orders = new Meteor.Collection('orders');
