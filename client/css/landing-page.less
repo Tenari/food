@@ -1,3 +1,4 @@
+@import "variables.lessimport";
 .hungry-half{
   position:absolute;
   top:0;
@@ -5,11 +6,11 @@
   height:100%;
 
   border-right-style:solid;
-  border-color:#bbb;
+  border-color:@midColor;
   border-width:1px;
-  -webkit-box-shadow: inset -1px -1px 5px 0px rgba(150, 150, 150, 1);
-     -moz-box-shadow: inset -1px -1px 5px 0px rgba(150, 150, 150, 1);
-          box-shadow: inset -1px -1px 5px 0px rgba(150, 150, 150, 1);
+  -webkit-box-shadow: inset -1px -1px 5px 0px @midColor;
+     -moz-box-shadow: inset -1px -1px 5px 0px @midColor;
+          box-shadow: inset -1px -1px 5px 0px @midColor;
 }
 .hungry-sad{
   background-image:url('http://i.imgur.com/nDQHL0E.jpg');
@@ -31,11 +32,11 @@
   height:100%;
 
   border-left-style:solid;
-  border-color:#bbb;
+  border-color:@midColor;
   border-width:1px;
-  -webkit-box-shadow: inset 1px 1px 5px 0px rgba(150, 150, 150, 1);
-     -moz-box-shadow: inset 1px 1px 5px 0px rgba(150, 150, 150, 1);
-          box-shadow: inset 1px 1px 5px 0px rgba(150, 150, 150, 1);
+  -webkit-box-shadow: inset 1px 1px 5px 0px @midColor;
+     -moz-box-shadow: inset 1px 1px 5px 0px @midColor;
+          box-shadow: inset 1px 1px 5px 0px @midColor;
 }
 .chef-sad{
   background-image:url('http://i.imgur.com/ggfqDlr.jpg');

@@ -1,3 +1,4 @@
+@import "variables.lessimport";
 .big-select{
   margin-left:35%;
 
@@ -9,14 +10,14 @@
   padding-bottom:10px;
   
   background:transparent;
-  border:2px solid #000;
+  border:2px solid @darkColor;
 
-  -webkit-box-shadow: 0px 0px 5px 1px #888;
-     -moz-box-shadow: 0px 0px 5px 1px #888;
-          box-shadow: 0px 0px 5px 1px #888;
+  -webkit-box-shadow: 0px 0px 5px 1px @midColor;
+     -moz-box-shadow: 0px 0px 5px 1px @midColor;
+          box-shadow: 0px 0px 5px 1px @midColor;
 
   font-size:1.2em;
-  color:#000;
+  color:@darkColor;
 }
 .small-select{
   margin-left:45%;
@@ -29,25 +30,25 @@
   padding-bottom:10px;
   
   background:transparent;
-  border:2px solid #000;
+  border:2px solid @darkColor;
 
-  -webkit-box-shadow: 0px 0px 5px 1px #888;
-     -moz-box-shadow: 0px 0px 5px 1px #888;
-          box-shadow: 0px 0px 5px 1px #888;
+  -webkit-box-shadow: 0px 0px 5px 1px @midColor;
+     -moz-box-shadow: 0px 0px 5px 1px @midColor;
+          box-shadow: 0px 0px 5px 1px @midColor;
 
   font-size:1.2em;
-  color:#000;
+  color:@darkColor;
 }
 .order-label{
   margin-left: 30%;
   font-size:1.2em;
 }
 .food-odds{
-  background: #888;
-  border:2px solid #000;
+  background: @midColor;
+  border:2px solid @darkColor;
   -moz-border-radius: 2px;
        border-radius: 2px;
-  color:#f00;
+  color:@highlightColor;
   font-size:2em;
   position:fixed;
   top:90px;
@@ -56,13 +57,13 @@
   padding-bottom:10px;
 }
 #price{
-  border:2px solid #000;
-  -webkit-box-shadow: 0px 0px 5px 1px #888;
-     -moz-box-shadow: 0px 0px 5px 1px #888;
-          box-shadow: 0px 0px 5px 1px #888;
+  border:2px solid @darkColor;
+  -webkit-box-shadow: 0px 0px 5px 1px @midColor;
+     -moz-box-shadow: 0px 0px 5px 1px @midColor;
+          box-shadow: 0px 0px 5px 1px @midColor;
 
   font-size:2em;
-  color:#000;
+  color:@darkColor;
   width:50px;
   margin-top:20px;
   margin-bottom:30px;
@@ -79,4 +80,10 @@
  width:30%;
  padding-top:3px;
  padding-bottom:3px;
+}
+#submit {
+  margin-left:45%;
+  width:10%;
+  margin-bottom:20px;
+  margin-top:10px;
 }

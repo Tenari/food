@@ -1,0 +1,25 @@
+@import "variables.lessimport";
+.main{
+  width:80%;
+  height:100%;
+  
+  background-color:@lightColor;
+}
+.sidebar{
+  position:fixed;
+  top:0;
+  right:0;
+  z-index:999;
+
+  width:20%;
+  height:100%;
+  
+  background-color:@midColor;
+  -webkit-box-shadow: inset 1px -1px 6px 1px @darkColor;
+     -moz-box-shadow: inset 1px -1px 6px 1px @darkColor;
+          box-shadow: inset 1px -1px 6px 1px @darkColor;
+}
+.body-spacer{
+  width:100%;
+  height:90px;
+}

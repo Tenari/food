@@ -1,3 +1,4 @@
+@import "variables.lessimport";
 .txt-center{
   text-align:center;
 }
@@ -12,45 +13,45 @@
   margin:2px;
 }
 .buble{
-  color:#000;
-  background-color:#888;
+  color:@darkColor;
+  background-color:@midColor;
   padding: 15px;
   border-style: solid;
   border-width: 1px;
-  border-color: #000;
+  border-color: @darkColor;
   -webkit-border-radius:7px;
      -moz-border-radius:7px;
           border-radius:7px;
-  -webkit-box-shadow: 0px 0px 15px #888;
-     -moz-box-shadow: 0px 0px 15px #888;
-          box-shadow: 0px 0px 15px #888; 
+  -webkit-box-shadow: 0px 0px 15px @midColor;
+     -moz-box-shadow: 0px 0px 15px @midColor;
+          box-shadow: 0px 0px 15px @midColor; 
 }
 .btn {
-  -webkit-box-shadow: 0px 2px 4px 1px #000;
-     -moz-box-shadow: 0px 2px 4px 1px #000;
-          box-shadow: 0px 2px 4px 1px #000;
-  background-color:#888;
+  -webkit-box-shadow: 0px 2px 4px 1px @darkColor;
+     -moz-box-shadow: 0px 2px 4px 1px @darkColor;
+          box-shadow: 0px 2px 4px 1px @darkColor;
+  background-color:@midColor;
   -webkit-border-radius:1px;
      -moz-border-radius:1px;
           border-radius:1px;
-  border:2px solid #000;
+  border:2px solid @darkColor;
   display:inline-block;
-  color:#fff;
+  color:@lightColor;
   font-family:arial;
   font-size:24px;
   font-weight:bold;
   padding:7px 30px;
   text-decoration:none;
-  text-shadow:0px 1px 1px #000;
+  text-shadow:0px 1px 1px @darkColor;
 }.btn:hover {
-  background-color:#f00;
+  background-color:@highlightColor;
 }.btn:active {
   position:relative;
   top:1px;
 }
 .btn-white{
-  background-color:#fff;
-  color:#888;
+  background-color:@lightColor;
+  color:@midColor;
 }
 
 .cntr-30p{

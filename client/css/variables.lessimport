@@ -1,0 +1,4 @@
+@darkColor: #000;
+@midColor: #888;
+@lightColor: #fff;
+@highlightColor: #00f;
