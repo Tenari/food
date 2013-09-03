@@ -3,8 +3,10 @@
   color:#fff;
   font-size:0.8em;
   padding:4px;
-  border-radius:2px;
+  -moz-border-radius:2px;
+       border-radius:2px;
   border:1px solid #888;
+  max-width:10%;
 }
 .tip:after, .tip:before {
 right: 100%;

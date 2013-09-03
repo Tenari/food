@@ -18,6 +18,26 @@
   font-size:1.2em;
   color:#000;
 }
+.small-select{
+  margin-left:45%;
+
+  width:10%;
+  margin-top:20px;
+  margin-bottom:30px;
+
+  padding-top:10px;
+  padding-bottom:10px;
+  
+  background:transparent;
+  border:2px solid #000;
+
+  -webkit-box-shadow: 0px 0px 5px 1px #888;
+     -moz-box-shadow: 0px 0px 5px 1px #888;
+          box-shadow: 0px 0px 5px 1px #888;
+
+  font-size:1.2em;
+  color:#000;
+}
 .order-label{
   margin-left: 30%;
   font-size:1.2em;
@@ -34,4 +54,29 @@
   left:4px;
   padding-top:10px;
   padding-bottom:10px;
+}
+#price{
+  border:2px solid #000;
+  -webkit-box-shadow: 0px 0px 5px 1px #888;
+     -moz-box-shadow: 0px 0px 5px 1px #888;
+          box-shadow: 0px 0px 5px 1px #888;
+
+  font-size:2em;
+  color:#000;
+  width:50px;
+  margin-top:20px;
+  margin-bottom:30px;
+
+  padding-top:10px;
+  padding-bottom:10px;
+}
+#order3 p{
+  width:33%;
+  margin-left:30%;
+}
+#order3 input{
+ margin-left:35%;
+ width:30%;
+ padding-top:3px;
+ padding-bottom:3px;
 }

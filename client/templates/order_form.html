@@ -17,35 +17,45 @@
       </select>
     </div>
     <div id="order3">
-      <p class="order-label" style="margin-left:0">
+      <p class="order-label">
         {{#if delivery}}
           to
         {{else}}
           from
         {{/if}}
       </p>
-      Address:
+      <p>Address:</p>
       <input type="text" id="address" data-spot="3" data-name="address"/>
       <br>
-      Zip:
+      <p>Zip:</p>
       <input type="text" id="zip" data-spot="3" data-name="zip"/>
       <br>
-      City:
+      <p>City:</p>
       <input type="text" id="city" data-spot="3" data-name="city"/>
       <br>
-      State:
+      <p>State:</p>
       <input type="text" id="state" data-spot="3" data-name="state"/>
       <br>
-      Country:
+      <p>Country:</p>
       <input type="text" id="country" data-spot="3" data-name="country"/>
     </div>
     <div id="order4">
       <p class="order-label">within</p>
-      <p class="cntr-30p"><input type="number" id="minutes" data-spot="4" data-name="minutes"/>minutes</p>
+      <select class="small-select tooltip" id="minutes" data-spot="4" data-name="minutes" data-tip="This is how long chefs have to accept your order--they may take longer to actually fill the order">
+        <option value=""></option>
+        <option value="5">5 min</option>
+        <option value="10">10 min</option>
+        <option value="20">20 min</option>
+        <option value="30">30 min</option>
+        <option value="60">1 hr</option>
+        <option value="120">2 hr</option>
+      </select>
     </div>
     <div id="order5">
       <p class="order-label">And I'll pay</p>
-      <p class="cntr-30p">$<input type="number" id="price" data-spot="5" data-name="price"/>.00 for it.</p>
+      <div class="cntr-30p">
+        <p class="txt-center">$<input type="number" id="price" data-spot="5" data-name="price"/>.00 for it.</p>
+      </div>
     </div>
     <div id="order6">
       <p class="order-label">More specifically, I want:</p>
