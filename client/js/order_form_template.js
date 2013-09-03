@@ -5,8 +5,19 @@ Template.orderform.helpers({
     var done_orders, total_orders;
 
     var food = Session.get('order-food');
+    var type = Session.get('order-type');
+    var address = Session.get('order-address');
+    var zip = Session.get('order-zip');
+    var city = Session.get('order-city');
+    var state = Session.get('order-state');
+    var country = Session.get('order-country');
+
     // super basic odds. should get more specific as they fill out the form.
-    if(food!=undefined && food !=""){
+    if (type != undefined && type != ""){
+      done_orders = Orders.find({finished: {$in: ["rated","delivered"]}, "details.food": food, "details.type":type}).count();
+      total_orders = Orders.find({"details.food": food, "details.type":type}).count();
+      final_val = parseInt(done_orders/total_orders*100);
+    } else if(food!=undefined && food !=""){
       done_orders = Orders.find({finished: {$in: ["rated","delivered"]}, "details.food": food}).count();
       total_orders = Orders.find({"details.food": food}).count();
       final_val = parseInt(done_orders/total_orders*100);
@@ -15,7 +26,10 @@ Template.orderform.helpers({
       total_orders = Orders.find().count();
       final_val = parseInt(done_orders/total_orders*100);
     }
-    return final_val;
+    if (isNaN(final_val))
+      return "--";
+    else
+      return final_val;
   },
   delivery: function(){
     return Session.get('order-type') == 'delivery';
