@@ -83,13 +83,16 @@ Template.layout.events({
   'mouseenter .tooltip':function(e){
     var elem = $(e.target);
     var e_off = elem.offset();
+    var id = "tip" + $('.tip').length;
+    var tip = elem.data('tip');
+    
+    $('body').prepend("<div id='"+id+"' class='tip'>"+tip+"</div>");
+    
     var offset = {
-      top: e_off.top + (elem.height()/2),
+      top: e_off.top + ((elem.innerHeight()-$('#'+id).innerHeight())/2),
       left: e_off.left + elem.width() + 9
     };
-    var tip = elem.data('tip');
 
-    $('body').prepend("<div class='tip' style='display:none'>"+tip+"</div>");
     $('.tip').offset(offset).fadeIn().css("position","absolute");
   },
   'mouseleave .tooltip':function(e){
