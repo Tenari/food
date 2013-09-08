@@ -38,17 +38,29 @@ Template.orderform.helpers({
   Template.orderform.isValid= function(){
     var address, zip, city, state, country;
     zip = Template.orderform.zipgood();
+    address = Template.orderform.addressgood();
   //  return address && zip && city && state && country;
-    return zip;
+    return zip && address;
   };
   Template.orderform.zipgood= function(){
-    var zip;
     var zip_val = $('#zip').val().trim();
-    zip = (zip_val.length == 5)
+    return (zip_val.length == 5)
           &&
           (!zip_val.match(/[a-z]/ig));
-    return zip;
   };
+  Template.orderform.addressgood = function(){
+    var address = $('#address').val();
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({address: address}, function(result, status){
+      if (status == "ZERO_RESULTS"){
+        alert('bad address');
+      } else if (status == "OK"){
+        alert(result[0].geometry.location);
+      }
+    });
+    return true;
+  };
+
   Template.orderform.validate6= function(){return true;};
   Template.orderform.validate5= function(){
     if ($('#price').val() <= 0){
@@ -72,7 +84,6 @@ Template.orderform.helpers({
     return Template.orderform.isValid();
   };
   Template.orderform.validate2= function(){
-    Session.set('order-type', $('#order2 select').val());
     return true;
   };
 
