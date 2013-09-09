@@ -131,6 +131,8 @@ Template.orderform.events({
     Session.set('order-spot', 4);
     $('#order4').fadeIn(700);
     $('#order4 *').show();
+  },
+  'click #competing-orders': function(){
   }
 });
 Template.orderform.rendered = function(){

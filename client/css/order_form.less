@@ -1,11 +1,5 @@
 @import "variables.lessimport";
-.big-select{
-  margin-left:35%;
-
-  width:30%;
-  margin-top:20px;
-  margin-bottom:30px;
-
+.order-border{
   padding-top:10px;
   padding-bottom:10px;
   
@@ -19,6 +13,15 @@
   font-size:1.2em;
   color:@darkColor;
 }
+.big-select{
+  margin-left:35%;
+
+  width:30%;
+  margin-top:20px;
+  margin-bottom:30px;
+
+  .order-border;
+}
 .small-select{
   margin-left:45%;
 
@@ -26,18 +29,7 @@
   margin-top:20px;
   margin-bottom:30px;
 
-  padding-top:10px;
-  padding-bottom:10px;
-  
-  background:transparent;
-  border:2px solid @darkColor;
-
-  -webkit-box-shadow: 0px 0px 5px 1px @midColor;
-     -moz-box-shadow: 0px 0px 5px 1px @midColor;
-          box-shadow: 0px 0px 5px 1px @midColor;
-
-  font-size:1.2em;
-  color:@darkColor;
+  .order-border;
 }
 .order-label{
   margin-left: 30%;
@@ -57,19 +49,11 @@
   padding-bottom:10px;
 }
 #price{
-  border:2px solid @darkColor;
-  -webkit-box-shadow: 0px 0px 5px 1px @midColor;
-     -moz-box-shadow: 0px 0px 5px 1px @midColor;
-          box-shadow: 0px 0px 5px 1px @midColor;
-
-  font-size:2em;
-  color:@darkColor;
   width:50px;
   margin-top:20px;
   margin-bottom:30px;
 
-  padding-top:10px;
-  padding-bottom:10px;
+  .order-border;
 }
 #order3 p{
   width:33%;
