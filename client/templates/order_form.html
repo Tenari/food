@@ -48,25 +48,14 @@
       <p class="order-label">
         And I'll pay
       </p>
-      <a href="#" id="competing-orders" style="float:right">competing orders</a>
-      {{#if showCompetition}}
-        {{> competing_orders}}
-      {{/if}}
       <div class="cntr-30p">
-        <p class="txt-center">$<input type="number" id="price" data-spot="5" data-name="price"/>.00 for it.</p>
+        <p class="txt-center">$<input type="number" id="price" data-spot="5" data-name="price" class="tooltip" data-tip="There {{formattedCompetingOrdersCount}} in your bracket. The average bid is ${{avgBidCompetingOrders}}"/>.00 for it.</p>
       </div>
     </div>
     <div id="order6">
       <p class="order-label">More specifically, I want:</p>
-      <textarea class="cntr-30p" id="specifics" data-spot="6" data-name="specifics" rows="4" cols="40" placeholder="The specific details about your food. Ex: no pickles, and toast it."></textarea>
+      <textarea class="cntr-30p order-border" id="specifics" data-spot="6" data-name="specifics" rows="4" cols="40" placeholder="The specific details about your food. Ex: no pickles, and toast it."></textarea>
     </div>
     <input type="submit" class="btn" id="submit" value="Go!"/>
-  </div>
-</template>
-
-<template name="competing_orders">
-  <div class="alert-box" id="competition">
-    There {{formattedCompetingOrdersCount}} in your bracket.<br>
-    The average bid is ${{avgBidCompetingOrders}}.
   </div>
 </template>

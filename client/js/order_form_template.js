@@ -4,33 +4,6 @@ var isValidAddress = function(){
   return true;
 };
 
-Template.competing_orders.helpers({
-
-  formattedCompetingOrdersCount: function(){
-    var now = new Date().getTime();
-    var count = Orders.find({"details.food": Session.get('order-food'), "details.expire": {$gt: now}}).count();
-    switch(count){
-      case 0:
-        return "are no Orders";
-      case 1:
-        return "is one Order";
-      default:
-        return "are " + count + " Orders";
-    }
-  },
-  avgBidCompetingOrders: function(){
-    var now = new Date().getTime();
-    var competition = Orders.find({"details.food": Session.get('order-food'), "details.expire": {$gt: now}}).fetch();
-  
-    var sum = 0;
-    for (var i = 0; i < competition.length; i++){
-      sum = sum + competition[i].details.price;
-    }
-    if(sum == 0) return 0;
-    return sum/competition.length;
-  }
-});
-
 Template.orderform.helpers({
   odds: function(e){
     var final_val = 0;
@@ -61,6 +34,29 @@ Template.orderform.helpers({
   },
   delivery: function(){
     return Session.get('order-type') == 'delivery';
+  },
+  formattedCompetingOrdersCount: function(){
+    var now = new Date().getTime();
+    var count = Orders.find({"details.food": Session.get('order-food'), "details.expire": {$gt: now}}).count();
+    switch(count){
+      case 0:
+        return "are no Orders";
+      case 1:
+        return "is one Order";
+      default:
+        return "are " + count + " Orders";
+    }
+  },
+  avgBidCompetingOrders: function(){
+    var now = new Date().getTime();
+    var competition = Orders.find({"details.food": Session.get('order-food'), "details.expire": {$gt: now}}).fetch();
+  
+    var sum = 0;
+    for (var i = 0; i < competition.length; i++){
+      sum = sum + parseInt(competition[i].details.price);
+    }
+    if(sum == 0) return 0;
+    return sum/competition.length;
   },
   showCompetition: function(){
     return Session.get('show-competition');
