@@ -1,4 +1,9 @@
 // HELPERS
+var isValidAddress = function(){
+  Meteor.shared.validateAddress('order-address');
+  return true;
+};
+
 Template.orderform.helpers({
   odds: function(e){
     var final_val = 0;
@@ -7,10 +12,6 @@ Template.orderform.helpers({
     var food = Session.get('order-food');
     var type = Session.get('order-type');
     var address = Session.get('order-address');
-    var zip = Session.get('order-zip');
-    var city = Session.get('order-city');
-    var state = Session.get('order-state');
-    var country = Session.get('order-country');
 
     // super basic odds. should get more specific as they fill out the form.
     if (type != undefined && type != ""){
@@ -35,32 +36,6 @@ Template.orderform.helpers({
     return Session.get('order-type') == 'delivery';
   },
 });
-  Template.orderform.isValid= function(){
-    var address, zip, city, state, country;
-    zip = Template.orderform.zipgood();
-    address = Template.orderform.addressgood();
-  //  return address && zip && city && state && country;
-    return zip && address;
-  };
-  Template.orderform.zipgood= function(){
-    var zip_val = $('#zip').val().trim();
-    return (zip_val.length == 5)
-          &&
-          (!zip_val.match(/[a-z]/ig));
-  };
-  Template.orderform.addressgood = function(){
-    var address = $('#address').val();
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({address: address}, function(result, status){
-      if (status == "ZERO_RESULTS"){
-        alert('bad address');
-      } else if (status == "OK"){
-        alert(result[0].geometry.location);
-      }
-    });
-    return true;
-  };
-
   Template.orderform.validate6= function(){return true;};
   Template.orderform.validate5= function(){
     if ($('#price').val() <= 0){
@@ -68,7 +43,7 @@ Template.orderform.helpers({
     }
     if ($('#price').val() < 5){
       $('#price-encouragment').remove();
-      $('#order5 p:last').append("<p id='price-encouragment'>You can do better, bro.</p>");
+      $('#order5 p:last').append("<p id='price-encouragment' class='error'>You can do better, bro.</p>");
     } else {
       $('#price-encouragment').remove();
     }
@@ -81,7 +56,7 @@ Template.orderform.helpers({
     return true;
   };
   Template.orderform.validate3= function(){
-    return Template.orderform.isValid();
+    return isValidAddress();
   };
   Template.orderform.validate2= function(){
     return true;
@@ -116,7 +91,7 @@ Template.orderform.events({
     }
   },
   'click #submit':function(){
-    if (Template.orderform.isValid()) {
+    if (isValidAddress()) {
       var now_time = new Date().getTime();
       Orders.insert({
         placer: Meteor.user()._id,
@@ -129,10 +104,8 @@ Template.orderform.events({
           max_distance: 50,
           location: {
             address: $('#address').val(),
-            zip: $('#zip').val(),
-            city: $('#city').val(),
-            state: $('#state').val(),
-            country: $('#country').val()
+            lat: Session.get('lat'),
+            lng: Session.get('lng')
           },
           expire: now_time + ($('#minutes').val()*60*1000),
           specifics: $('#specifics').val(),
@@ -147,14 +120,17 @@ Template.orderform.events({
       Session.set('order-food', undefined);
       Session.set('order-type', undefined);
       Session.set('order-address', undefined);
-      Session.set('order-zip', undefined);
-      Session.set('order-city', undefined);
-      Session.set('order-state', undefined);
-      Session.set('order-country', undefined);
       Session.set('order-price', undefined);
       Session.set('order-minutes', undefined);
       Session.set('order-specifics', undefined);
     }
+  },
+  'click #show-map': function(){
+    isValidAddress();
+
+    Session.set('order-spot', 4);
+    $('#order4').fadeIn(700);
+    $('#order4 *').show();
   }
 });
 Template.orderform.rendered = function(){
@@ -170,13 +146,13 @@ Template.orderform.rendered = function(){
       $('#order'+i+' *').show();
     }
   }
+
+  if (Meteor.user().profile.location != undefined && Session.get('order-address')==undefined)
+    Session.set( 'order-address', Meteor.user().profile.location.address);
+
   $('#order1').val(Session.get('order-food'));
   $('#order2 select').val(Session.get('order-type'));
   $('#address').val(Session.get('order-address'));
-  $('#zip').val(Session.get('order-zip'));
-  $('#city').val(Session.get('order-city'));
-  $('#state').val(Session.get('order-state'));
-  $('#country').val(Session.get('order-country'));
   $('#price').val(Session.get('order-price'));
   $('#minutes').val(Session.get('order-minutes'));
   $('#specifics').val(Session.get('order-specifics'));

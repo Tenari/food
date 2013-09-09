@@ -1,10 +1,6 @@
 Template.open_orders_chef.helpers({
   open_orders: function(){
-    var now_time = new Date().getTime();
-    return Orders.find({
-      taker: "noneyet",
-      "details.expire": {$gt: now_time}
-    }).fetch();
+    return Meteor.shared.localOrders();
   },
   username: function(id){
     return Meteor.users.find(id).fetch()[0].username;

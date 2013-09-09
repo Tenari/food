@@ -22,11 +22,7 @@ Template.layout.helpers({
     return "<span class='dash-jewel'>"+count+"</span>";
   },
   chef_open_count_jewel: function(){
-    var now_time = new Date().getTime();
-    var count = Orders.find({
-      taker: "noneyet",
-      "details.expire": {$gt: now_time}
-    }).count();
+    var count = Meteor.shared.localOrders().length;
     if (count == 0)
       return "";
     return "<span class='dash-jewel'>"+count+"</span>";
