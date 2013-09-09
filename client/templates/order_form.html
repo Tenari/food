@@ -49,6 +49,9 @@
         And I'll pay
       </p>
       <a href="#" id="competing-orders" style="float:right">competing orders</a>
+      {{#if showCompetition}}
+        {{> competing_orders}}
+      {{/if}}
       <div class="cntr-30p">
         <p class="txt-center">$<input type="number" id="price" data-spot="5" data-name="price"/>.00 for it.</p>
       </div>
@@ -63,7 +66,7 @@
 
 <template name="competing_orders">
   <div class="alert-box" id="competition">
-    There are {{formattedCompetingOrdersCount}} in your bracket.<br>
-    The average bid is {{avgBidCompetingOrders}}.
+    There {{formattedCompetingOrdersCount}} in your bracket.<br>
+    The average bid is ${{avgBidCompetingOrders}}.
   </div>
 </template>
