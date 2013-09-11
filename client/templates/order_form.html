@@ -24,7 +24,7 @@
         {{#if delivery}}
           to
         {{else}}
-          from
+          I'm coming from
         {{/if}}
       </p>
       <p>Address:</p>
@@ -33,7 +33,13 @@
       <div id="map-canvas" class="tooltip" data-tip="Is this where you're at?"/>
     </div>
     <div id="order4">
-      <p class="order-label">within</p>
+      <p class="order-label">
+      {{#if delivery}}  
+        within
+      {{else}}
+        The chef has
+      {{/if}}
+      </p>
       <select class="small-select tooltip" id="minutes" data-spot="4" data-name="minutes" data-tip="This is how long chefs have to accept your order--they may take longer to actually fill the order">
         <option value=""></option>
         <option value="5">5 min</option>
