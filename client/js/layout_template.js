@@ -1,15 +1,21 @@
 Template.layout.helpers({
   no_orders: function(){
-    return Orders.find({placer: Meteor.user()._id}).fetch().length == 0 || Session.get('dash-view') == 'new-order';
+    return Orders.find({placer: Meteor.userId()}).fetch().length == 0 || Session.get('dash-view') == 'new-order';
   },
   en_route_count_jewel: function(){
-    var count = Orders.find({placer: Meteor.user()._id, finished: "started"}).count();
+    var count = Orders.find({placer: Meteor.userId(), finished: "started"}).count();
     if (count==0)
       return "";
     return "<span class='dash-jewel'>"+count+"</span>";
   },
   to_rate_count_jewel: function(){
-    var count = Orders.find({placer: Meteor.user()._id, finished: "delivered"}).count();
+    var count = Orders.find({placer: Meteor.userId(), finished: "delivered"}).count();
+    if (count==0)
+      return "";
+    return "<span class='dash-jewel'>"+count+"</span>";
+  },
+  chef_to_rate_count_jewel: function(){
+    var count = Orders.find({taker: Meteor.userId(), finished: "rated"}).count();
     if (count==0)
       return "";
     return "<span class='dash-jewel'>"+count+"</span>";

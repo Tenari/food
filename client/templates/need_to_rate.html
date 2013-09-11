@@ -13,10 +13,7 @@
     {{else}}
       {{#each rated_orders}}
         <li>
-          <a class="order-link rate-link" id="{{_id}}" href="#">{{customer_name _id}} with a {{details.food}}</a>
-          <div class="order-info2 hide">
-            <p class="customer-name"><strong>Address: </strong>{{details.location.address}}</p>
-          </div>
+          <a class="rate-link" id="{{_id}}" href="#">{{customer_name _id}} with a {{details.food}}</a>
           {{> chef_rate_modal}}
         </li>
       {{/each}}
