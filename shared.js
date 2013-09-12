@@ -1,9 +1,6 @@
 Router.configure({
   layout: "layout",
-  notFoundTemplate: "404",
-  renderTemplates: {
-    'title': {to: 'title'}
-  }
+  notFoundTemplate: "404"
 });
 
 var authControllerFn = function() {

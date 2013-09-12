@@ -4,7 +4,7 @@
   <div class="container">
     <div class="top-container">
       {{> logo}}
-      {{yield 'title'}}
+      {{> title}}
       {{> tools}}
     </div>
     {{#if currentUser}}
@@ -16,13 +16,12 @@
           <a href="{{pathFor 'started_orders_hungry'}}" class="dash-btn">{{{en_route_count_jewel}}}En Route Orders</a>
           <a href="{{pathFor 'need_to_rate'}}" class="dash-btn">{{{to_rate_count_jewel}}}Orders to Rate</a>
           <a href="{{pathFor 'full_order_history'}}" class="dash-btn">Full Order History</a>
-          <a href="/profile/{{currentUser._id}}" class="dash-btn">Profile</a>
       {{else}}
-          <a href="/profile/{{currentUser._id}}" class="dash-btn">Profile</a>
           <a href="{{pathFor 'open_orders_chef'}}" class="dash-btn">{{{chef_open_count_jewel}}}Open Orders</a>
           <a href="{{pathFor 'current_orders_chef'}}" class="dash-btn">{{{taken_count_jewel}}}Accepted Orders</a>
           <a href="{{pathFor 'need_to_rate'}}" class="dash-btn">{{{chef_to_rate_count_jewel}}}Customers to Rate</a>
       {{/if}}
+          <a href="/profile/{{currentUser._id}}" class="dash-btn">Profile</a>
         </div>
         <div class="main">
           <div class="body-spacer"></div>
