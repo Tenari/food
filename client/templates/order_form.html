@@ -33,6 +33,11 @@
       <div id="map-canvas" class="tooltip" data-tip="Is this where you're at?"/>
     </div>
     <div id="order4">
+      {{#unless delivery}}
+        <div class="cnrt-30p">
+          <p class="txt-center">I'll drive up to <input type="number" min="0" id="max_distance" data-spot="5" data-name="max_distance" value="15"/> miles for it.</p>
+        </div>
+      {{/unless}}
       <p class="order-label">
       {{#if delivery}}  
         within

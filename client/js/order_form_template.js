@@ -127,7 +127,7 @@ Template.orderform.events({
           placed: now_time,
           food: $('#order1').val(),
           type: $('#order2 select').val(),
-          max_distance: 50,
+          max_distance: $('#max_distance').val(),
           location: {
             address: $('#address').val(),
             lat: Session.get('lat'),
@@ -185,6 +185,7 @@ Template.orderform.rendered = function(){
 
   $('#order1').val(Session.get('order-food'));
   $('#order2 select').val(Session.get('order-type'));
+  $('#max_distance').val(Session.get('order-max_distance'));
   $('#address').val(Session.get('order-address'));
   $('#price').val(Session.get('order-price'));
   $('#minutes').val(Session.get('order-minutes'));
