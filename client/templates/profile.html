@@ -1,12 +1,14 @@
 <template name="profile">
-  <h1>{{currentUser.username}}</h1>
+  <h1>{{this.username}}</h1>
   <p>Integrity: {{integrity}}</p>
-  <p>Current Address: {{currentUser.profile.location.address}}</p>
-  <a id="show-address" href="#">set location</a>
-  <p id="address-block" class="hide">
-    Address:
-    <input type="text" id="address" data-spot="3" data-name="address"/>
-    <button id="set-address">Save</button>
-    <div id="map-canvas" class="tooltip" data-tip="Is this where you're at?"/>
-  </p>
+  <p>Current Address: {{this.profile.location.address}}</p>
+  {{#if currentUser}}
+    <a id="show-address" href="#">set location</a>
+    <p id="address-block" class="hide">
+      Address:
+      <input type="text" id="address" data-spot="3" data-name="address"/>
+      <button id="set-address">Save</button>
+      <div id="map-canvas" class="tooltip" data-tip="Is this where you're at?"/>
+    </p>
+  {{/if}}
 </template>
