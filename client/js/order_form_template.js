@@ -127,7 +127,7 @@ Template.orderform.events({
           placed: now_time,
           food: $('#order1').val(),
           type: $('#order2 select').val(),
-          max_distance: $('#max_distance').val(),
+          max_distance: (Session.get('order-type') == "delivery") ? (15) : (parseInt($('#max_distance').val())),
           location: {
             address: $('#address').val(),
             lat: Session.get('lat'),
