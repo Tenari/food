@@ -41,6 +41,11 @@ Template.layout.helpers({
     if (count == 0)
       return "";
     return "<span class='dash-jewel'>"+count+"</span>";
+  },
+  dash_selected: function(item){
+    if (window.location.pathname.indexOf(item) != -1)
+      return "dash-btn-selected"
+    return "";
   }
 });
 

@@ -11,17 +11,17 @@
         <div class="sidebar">
           <div class="body-spacer"></div>
       {{#if currentUser.profile.hungry}}
-          <a href="{{pathFor 'orderform'}}" class="dash-btn">New Order</a>
-          <a href="{{pathFor 'open_orders_hungry'}}" class="dash-btn">{{{open_count_jewel}}}Open Orders</a>
-          <a href="{{pathFor 'started_orders_hungry'}}" class="dash-btn">{{{en_route_count_jewel}}}En Route Orders</a>
-          <a href="{{pathFor 'need_to_rate'}}" class="dash-btn">{{{to_rate_count_jewel}}}Orders to Rate</a>
-          <a href="{{pathFor 'full_order_history'}}" class="dash-btn">Full Order History</a>
+          <a href="{{pathFor 'orderform'}}" class="dash-btn {{dash_selected 'orderform'}}">New Order</a>
+          <a href="{{pathFor 'open_orders_hungry'}}" class="dash-btn {{dash_selected 'open_orders_hungry'}}">{{{open_count_jewel}}}Open Orders</a>
+          <a href="{{pathFor 'started_orders_hungry'}}" class="dash-btn {{dash_selected 'started_orders_hungry'}}">{{{en_route_count_jewel}}}En Route Orders</a>
+          <a href="{{pathFor 'need_to_rate'}}" class="dash-btn {{dash_selected 'need_to_rate'}}">{{{to_rate_count_jewel}}}Orders to Rate</a>
+          <a href="{{pathFor 'full_order_history'}}" class="dash-btn {{dash_selected 'full_order_history'}}">Full Order History</a>
       {{else}}
-          <a href="{{pathFor 'open_orders_chef'}}" class="dash-btn">{{{chef_open_count_jewel}}}Open Orders</a>
-          <a href="{{pathFor 'current_orders_chef'}}" class="dash-btn">{{{taken_count_jewel}}}Accepted Orders</a>
-          <a href="{{pathFor 'need_to_rate'}}" class="dash-btn">{{{chef_to_rate_count_jewel}}}Customers to Rate</a>
+          <a href="{{pathFor 'open_orders_chef'}}" class="dash-btn {{dash_selected 'open_orders_chef'}}">{{{chef_open_count_jewel}}}Open Orders</a>
+          <a href="{{pathFor 'current_orders_chef'}}" class="dash-btn {{dash_selected 'current_orders_chef'}}">{{{taken_count_jewel}}}Accepted Orders</a>
+          <a href="{{pathFor 'need_to_rate'}}" class="dash-btn {{dash_selected 'need_to_rate'}}">{{{chef_to_rate_count_jewel}}}Customers to Rate</a>
       {{/if}}
-          <a href="/profile/{{currentUser._id}}" class="dash-btn">Profile</a>
+          <a href="/profile/{{currentUser._id}}" class="dash-btn {{dash_selected 'profile'}}">Profile</a>
         </div>
         <div class="main">
           <div class="body-spacer"></div>
