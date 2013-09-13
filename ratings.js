@@ -29,9 +29,13 @@ Ratings.allow({
             ;
   },
   update: function(userId, doc, fields, modifier){
-    return true;
+    return  doc.rater == userId
+            && fields.length == 1
+            && !_.contains(['rater', 'ratee'], fields[0]) 
+            ;
   },
+  // They can't remove Ratings!
   remove: function(userId, doc){
-    return true;
+    return false;
   }
 });
