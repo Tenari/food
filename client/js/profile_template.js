@@ -31,6 +31,9 @@ Template.profile.helpers({
     var adjusted_integrity = Math.min(((raw_integrity / biggest) * 100), 100);
     if (isNaN(adjusted_integrity)) return 0;
     return parseInt(adjusted_integrity);
+  },
+  logged_in_and_own_profile: function(){
+    return Meteor.userId() && Meteor.userId() == this._id;
   }
 });
 

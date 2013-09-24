@@ -11,37 +11,23 @@ Template.landing.events({
   'mouseleave .chef-half':function(){
     $('.chef-half').removeClass("chef-happy").addClass('chef-sad');
   },
-  'click .hungry-half': function(){
-    if(Session.get('hungry-action')==undefined){
-      if(Session.get('hungry')){
-        Session.set('hungry', undefined);
-      } else {
-        Session.set('hungry', true);
-      }
-      Session.set('chef-action', undefined);
-    }
-  },
-  'click .chef-half': function(){
-    if(Session.get('chef-action')==undefined){
-      if(Session.get('hungry') == false){
-        Session.set('hungry', undefined);
-      } else {
-        Session.set('hungry', false);
-      }
-      Session.set('hungry-action', undefined);
-    }
-  },
+  'click .chef-half': function(){ Session.set('hungry-action',undefined);},
+  'click .hungry-half': function(){ Session.set('chef-action',undefined);},
   'click #chef-login': function(){
     Session.set('chef-action','login');
+    Session.set('hungry-action', undefined);
   },
   'click #chef-signup': function(){
     Session.set('chef-action','signup');
+    Session.set('hungry-action', undefined);
   },
   'click #hungry-signup': function(){
     Session.set('hungry-action','signup');
+    Session.set('chef-action', undefined);
   },
   'click #hungry-login': function(){
     Session.set('hungry-action','login');
+    Session.set('chef-action', undefined);
   },
   'click #hungry-noacct': function(){
      window.location.pathname = "account-less";
